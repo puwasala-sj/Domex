@@ -63,7 +63,14 @@
 					<td>
 					   <form action="DeleteChequePaymentServlet" method="post">
 							<input type="hidden" name="deletePayment" value="<%=ch1.getChequePID()%>">
-							<input type="submit" name="btnDelete" value="Delete" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;">
+							<input type="submit" name="btnDelete" value="Delete" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;cursor: pointer;border-radius: 5%;font-weight:bold;">
+						</form>
+											
+					</td>
+					<td>
+					   <form action="GetChequePaymentInfoServlet" method="post">
+							<input type="hidden" name="updateCheque" value="<%=ch1.getChequePID()%>">
+							<input type="submit" name="btnDelete" value="Update" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;cursor: pointer;border-radius: 5%;font-weight:bold;">
 						</form>
 											
 					</td>

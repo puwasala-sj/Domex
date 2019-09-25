@@ -66,7 +66,14 @@
 					<td>
 					   <form action="DeleteCardPaymentServlet" method="post">
 							<input type="hidden" name="deletePayment" value="<%=ca1.getCardPID()%>">
-							<input type="submit" name="btnDelete" value="Delete" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;">
+							<input type="submit" name="btnDelete" value="Delete" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;cursor: pointer;border-radius: 5%;font-weight:bold;">
+						</form>
+											
+					</td>
+					<td>
+					   <form action="GetCardPaymentInfo" method="post">
+							<input type="hidden" name="updateCash" value="<%=ca1.getCardPID()%>">
+							<input type="submit" name="btnDelete" value="Update" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;cursor: pointer;border-radius: 5%;font-weight:bold;">
 						</form>
 											
 					</td>
