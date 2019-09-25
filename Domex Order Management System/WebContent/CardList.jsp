@@ -71,8 +71,8 @@
 											
 					</td>
 					<td>
-					   <form action="GetCardPaymentInfo" method="post">
-							<input type="hidden" name="updateCash" value="<%=ca1.getCardPID()%>">
+					   <form action="GetCardPaymentInfoServlet" method="post">
+							<input type="hidden" name="updateCard" value="<%=ca1.getCardPID()%>">
 							<input type="submit" name="btnDelete" value="Update" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;cursor: pointer;border-radius: 5%;font-weight:bold;">
 						</form>
 											

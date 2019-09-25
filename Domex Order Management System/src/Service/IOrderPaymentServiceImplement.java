@@ -198,7 +198,7 @@ public class IOrderPaymentServiceImplement implements IOrderPaymentService {
 	@Override
 	public boolean updateCardInfo(CardPayment ca1) throws SQLException {
 		// TODO Auto-generated method stub
-		String sql = "UPDATE cardpayment SET cardPID = ?,amount = ?, cardType = ?, cardNumber = ?, expiryDate = ?, ccv = ?, where cardPID = " + ca1.getCardPID();
+		String sql = "UPDATE cardpayment SET cardPID = ?,amount = ?, cardType = ?, cardNumber = ?, expiryDate = ?, ccv = ? where cardPID = " + ca1.getCardPID();
 		PreparedStatement stm = conn.prepareStatement(sql);
 		stm.setObject(1,ca1.getCardPID());
 		stm.setObject(2,ca1.getAmount());

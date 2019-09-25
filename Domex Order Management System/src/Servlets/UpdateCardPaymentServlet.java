@@ -62,10 +62,14 @@ public class UpdateCardPaymentServlet extends HttpServlet {
 		
 		IOrderPaymentService serv = new IOrderPaymentServiceImplement();
 		
+		boolean isAdded = false;
 		try {
-			boolean isAdded= serv.updateCardInfo(ca1);
-			
-			if(isAdded==true) {
+			isAdded= serv.updateCardInfo(ca1);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(isAdded==true) {
 				
 				PrintWriter writer= response.getWriter();
 				writer.println("<script>");
@@ -73,14 +77,8 @@ public class UpdateCardPaymentServlet extends HttpServlet {
 				writer.println("</script>");
 				
 				RequestDispatcher dispatcher= getServletContext().getRequestDispatcher("/CardList.jsp");
-				response.setContentType("text/html;charset=UTF-8");
 				dispatcher.include(request, response);
 						
-			}
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		
 	}

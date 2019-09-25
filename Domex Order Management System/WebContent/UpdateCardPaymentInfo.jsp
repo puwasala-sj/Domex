@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="Model.CashPayment" %>
+<%@ page import="Model.CardPayment" %>
 <%@ page import="Service.IOrderPaymentService" %>
 <%@ page import="Service.IOrderPaymentServiceImplement"%>    
 <%@ page import="java.util.ArrayList"%> 
@@ -9,7 +9,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Update Cash Payment</title>
+<title>Update Card Payment</title>
 <link href='https://fonts.googleapis.com/css?family=Nunito:400,300'
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="CSS/Payment.css">
@@ -34,36 +34,41 @@
     <li class="breadcrumb-item"><a href="HomePage.jsp">Home</a></li>
     <li class="breadcrumb-item"><a href="Orders.jsp">Order</a></li>
     <li class="breadcrumb-item"><a href="PaymentMethod.jsp">Payment method</a></li>
-    <li class="breadcrumb-item active" aria-current="page">CashPayment</li>
+    <li class="breadcrumb-item active" aria-current="page">CardPayment</li>
   </ol>
 </nav>
 
-<form action="UpdateCashPaymentServlet" method="post">
+<form action="UpdateCardPaymentServlet" method="post">
 
 		<p>
 			</br>
 		</p>
-		<h1>Cash Payment</h1>
+		<h1>Card Payment</h1>
 		<p></p>
 
 		<fieldset>
-			<% ArrayList<CashPayment> list1 = (ArrayList<CashPayment>)request.getAttribute("cashpayment");
-					for(CashPayment c1: list1){
+			<% ArrayList<CardPayment> list1 = (ArrayList<CardPayment>)request.getAttribute("cardpayment");
+					for(CardPayment ca1: list1){
 						%>	
 			<p></p>
 			
 			<label for="name"> Amount: </label> 
-			<input type="text" id="amount" name="amount" value="<%=c1.getAmount()%>" required> 
+			<input type="text" id="amount" name="amount" value="<%=ca1.getAmount()%>" required> 
 			
-			<label for="name">Delivery Date:</label> 
-			<input type="date" id="deliveryDate" name="deliveryDate" value="<%=c1.getDeliveryDate()%>" required>
+			<label for="name">Card Type:</label> 
+			<input type="text" id="cardType" name="cardType" value="<%=ca1.getCardType()%>" required>
 			
-			<label for="name">Delivery Address:</label> 
-			<input type="text" id="deliveryAddress" name="deliveryAddress" value="<%=c1.getDeliveryAddress()%>" required>
-	
+			<label for="name">Card Number:</label> 
+			<input type="text" id="cardNumber" name="cardNumber" value="<%=ca1.getCardNumber()%>" required>
+			
+			<label for="name">Expiry Date: </label> 
+			<input type="text" id="expiryDate" name="expiryDate" value="<%=ca1.getExpiryDate()%>" required> 
+			
+			<label for="name">Ccv:</label> 
+			<input type="text" id="ccv" name="ccv" value="<%=ca1.getCcv()%>" required>
 		</fieldset>
 
-			<button type="submit" name = "cashPID" value="<%=c1.getCashPID()%>">Update Details</button>
+			<button type="submit" name = "cardPID" value="<%=ca1.getCardPID()%>">Update Details</button>
 			<p></p>
 	<% } %>
 	</form>

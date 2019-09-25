@@ -43,7 +43,7 @@
 		<p>
 			</br>
 		</p>
-		<h1>Update Cheque Payment</h1>
+		<h1>Cheque Payment</h1>
 		<p></p>
 
 		<fieldset>
