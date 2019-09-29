@@ -50,10 +50,11 @@ public class UpdateOrderServlet extends HttpServlet {
 		
 		Order order = new Order();
 		
+		int orderID = Integer.parseInt(request.getParameter("orderID"));
 		String customer_Name = request.getParameter("customer_Name");
 		String packages = request.getParameter("packages");
 		String type = request.getParameter("type");
-		float weight = (float) (Float.parseFloat(request.getParameter("kilo")) +((Float.parseFloat(request.getParameter("gram")))/1000.0));
+		float weight = (float) (Float.parseFloat(request.getParameter("kilo")));
 		String receiver = request.getParameter("receiver");
 		String address = request.getParameter("address");
 		String district = request.getParameter("district");
@@ -61,64 +62,8 @@ public class UpdateOrderServlet extends HttpServlet {
 		int postCode = Integer.parseInt(request.getParameter("postCode"));
 		float charge = weight * 150;
 	
-		if(customer_Name.equals("") ||packages.equals("") || type.equals("") || receiver.equals("") || address.equals("") || district.equals("") ||town.equals("") ) {
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('Fill all Details')");
-			out.println("</script>");
-			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Orders.jsp");
-			dispatcher.include(request, response);
-		}	
-		else if(!customer_Name.matches("^[a-zA-Z]+$")) {
-			PrintWriter writer = response.getWriter();
-			
-			writer.println("<script>");
-			writer.println("alert('Name must be letters only')");
-			writer.println("</script>");
-			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Orders.jsp");
-			dispatcher.include(request, response);
-			
-			
-			
-		}else if(!packages.matches("^[a-zA-Z]+$")) {
-			PrintWriter writer = response.getWriter();
-			
-			writer.println("<script>");
-			writer.println("alert('Packages must be letters only')");
-			writer.println("</script>");
-			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Orders.jsp");
-			dispatcher.include(request, response);
-			
-		}
-		else if(!type.matches("^[a-zA-Z]+$")) {
-			PrintWriter writer = response.getWriter();
-			
-			writer.println("<script>");
-			writer.println("alert('Type must be letters only')");
-			writer.println("</script>");
-			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Orders.jsp");
-			dispatcher.include(request, response);
-	
-			
-		}
-		else if(!town.matches("^[a-zA-Z]+$")) {
-			PrintWriter writer = response.getWriter();
 		
-			writer.println("<script>");
-			writer.println("alert('Town must be letters only')");
-			writer.println("</script>");
-			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CashPayment.jsp");
-			dispatcher.include(request, response);
-			
-		}
-		else {
-
-			
+			order.setOrderID(orderID);
 			order.setCustomer_Name(customer_Name);
 			order.setPackages(packages);
 			order.setType(type);
@@ -130,14 +75,14 @@ public class UpdateOrderServlet extends HttpServlet {
 			order.setPostCode(postCode);
 			order.setCharge(charge);
 			
-		}
 		
 		OrderService iOrderService = new IOrderServiceImplement();
 
-		try {
+
 			boolean isadded = iOrderService.addNewOrder(order);
+	
 			
-			if(isadded == true) {	
+			if(isadded == true) {
 					System.out.println("Success");
 					
 					PrintWriter writer = response.getWriter();
@@ -149,18 +94,13 @@ public class UpdateOrderServlet extends HttpServlet {
 
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PaymentLists.jsp");
 					dispatcher.include(request, response);
-			}
-			else
+			}else
 				System.out.println("Error");
 			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
 	}
 		
 		
 		
 	}
 
-}
