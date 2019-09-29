@@ -24,8 +24,10 @@
 		
 	  	<a href="HomePage.jsp">Home</a>
 	  	<a href="Orders.jsp">Order</a>
-	  	<a href="PaymentMethod.jsp">Payment Method</a>
-	  	<a href="Customer.jsp">Client</a>
+	  	<a href="AddEmployee.jsp">Employee</a>
+	  	<a href="AddVehicle.jsp">Vehicle</a>
+	  	<a href="Customer.jsp">Clients</a>
+	  	
 	</div>
 </div>
 

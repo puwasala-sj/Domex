@@ -22,10 +22,12 @@
 	right:125px;  
 	top:0px; ">	
 <div class="navigationbar">
-  	<a href="Home.jsp">Home</a>
-  	<a href="Order.jsp">Order</a>
+  	<a href="HomePage.jsp">Home</a>
+  	<a href="Orders.jsp">Order</a>
+  	<a href="AddEmployee.jsp">Employee</a>
+  	<a href="AddVehicle.jsp">Vehicle</a>
+  	<a href="Customer.jsp">Clients</a>
   	<a href="PaymentMethod.jsp">Payment Method</a>
-  	
 </div>
 
 <nav aria-label="breadcrumb" >

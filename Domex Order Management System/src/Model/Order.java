@@ -122,5 +122,4 @@ public class Order {
 	public void setCharge(float charge) {
 		this.charge = charge;
 	}
-
 }

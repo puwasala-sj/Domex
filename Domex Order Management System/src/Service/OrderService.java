@@ -13,5 +13,8 @@ public interface OrderService {
 
 	boolean deleteOrder(int orderID) throws SQLException;
 
+	ArrayList<Order> getOrderInfo(int OrderID) throws SQLException;
+
+	boolean updateCardInfo(Order o) throws SQLException;
 
 }

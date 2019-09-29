@@ -28,5 +28,4 @@ public class District {
 		Charge = charge;
 	}
 	
-	
 }

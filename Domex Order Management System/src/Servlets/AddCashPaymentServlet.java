@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Model.CashPayment;
 import Service.IOrderPaymentService;
@@ -46,7 +47,7 @@ public class AddCashPaymentServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 		
 		CashPayment c1 = new CashPayment();
 		
@@ -86,8 +87,13 @@ public class AddCashPaymentServlet extends HttpServlet {
 					writer.println("alert('Added Successfully')");
 					writer.println("</script>");
 					
+					HttpSession session1 = request.getSession(); 
+				    session1.setAttribute("deliveryDate", c1.getDeliveryDate());
 					
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PaymentMethod.jsp");
+				    HttpSession session2 = request.getSession(); 
+				    session2.setAttribute("deliveryAddress", c1.getDeliveryAddress());
+					
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CashInvoice.jsp");
 					dispatcher.include(request, response);
 			}
 			else

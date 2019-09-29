@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Model.CardPayment;
 import Service.IOrderPaymentService;
@@ -46,7 +47,7 @@ public class AddCardPaymentServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 		CardPayment ca1 = new CardPayment();
 		
 		String amount = request.getParameter("amount");
@@ -120,8 +121,20 @@ public class AddCardPaymentServlet extends HttpServlet {
 					writer.println("alert('Added Successfully')");
 					writer.println("</script>");
 					
+					HttpSession session1 = request.getSession(); 
+				    session1.setAttribute("cardTyper", ca1.getCardType());
 					
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PaymentMethod.jsp");
+				    HttpSession session2 = request.getSession(); 
+				    session2.setAttribute("cardNumber", ca1.getCardNumber());
+				    
+				    HttpSession session3 = request.getSession(); 
+				    session3.setAttribute("expiryDate", ca1.getExpiryDate());
+					
+				    HttpSession session4 = request.getSession(); 
+				    session4.setAttribute("ccv", ca1.getCcv());
+				    
+				    
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CardInvoice.jsp");
 					dispatcher.include(request, response);
 			}
 			else

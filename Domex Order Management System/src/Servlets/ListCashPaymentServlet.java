@@ -37,9 +37,9 @@ public class ListCashPaymentServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CashPaymentList.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CashList.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -25,9 +25,9 @@
 		
 	  	<a href="Home.jsp">Home</a>
 	  	<a href="Orders.jsp">Order</a>
-	  	<a href="AddEmployee.jsp">Employees</a>
+	  	<a href="AddEmployee.jsp">Employee</a>
 	  	<a href="Customer.jsp">Clients</a>
-	  	<a href="AddVehicle.jsp">Vehicles</a>
+	  	<a href="AddVehicle.jsp">Vehicle</a>
 	</div>
 </div>
 
@@ -126,18 +126,17 @@
 <div class="card" style="width: 18rem; ">
   <img src="Images/yellow.jpg" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">PAYMENTS</h5>
-    <p class="card-text">List Payments and manage transactions</p>
+    <h5 class="card-title">Admin Dashboard</h5>
+    <p class="card-text">List Details and manage all details</p>
     <br>
-    
-    <a href="PaymentLists.jsp" class="btn btn-primary">List Payments</a>
+    <br>
+    <a href="Admin.jsp" class="btn btn-primary">Admin Dashboard</a>
   </div>
 </div>
 </td>
 
 </tr>
 </table>
-
 
 <br>
 <br>

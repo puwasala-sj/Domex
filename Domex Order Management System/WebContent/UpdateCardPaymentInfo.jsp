@@ -23,10 +23,10 @@
 	right:125px;  
 	top:0px; ">	
 <div class="navigationbar">
-  	<a href="Home.jsp">Home</a>
-  	<a href="Order.jsp">Order</a>
-  	<a href="PaymentLists.jsp">Payment List</a>
-  	
+  	<a href="HomePage.jsp">Home</a>
+  	<a href="Admin.jsp">Admin Dashboard</a>
+  	<a href="CardList.jsp">Card List</a>
+  	 	
 </div>
 
 <nav aria-label="breadcrumb" >

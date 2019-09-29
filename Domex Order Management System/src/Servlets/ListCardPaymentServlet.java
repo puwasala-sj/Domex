@@ -37,9 +37,9 @@ public class ListCardPaymentServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CardPaymentList.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CardList.jsp");
 		dispatcher.forward(request, response);
 	}
 

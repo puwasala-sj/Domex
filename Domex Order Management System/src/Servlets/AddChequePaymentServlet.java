@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Model.ChequePayment;
 import Service.IOrderPaymentService;
@@ -43,7 +44,7 @@ public class AddChequePaymentServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 		
 		ChequePayment ch1 = new ChequePayment();
 		
@@ -104,8 +105,13 @@ public class AddChequePaymentServlet extends HttpServlet {
 					writer.println("alert('Added Successfully')");
 					writer.println("</script>");
 					
+					HttpSession session1 = request.getSession(); 
+				    session1.setAttribute("chequeNumber", ch1.getChequeNumber());
 					
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PaymentMethod.jsp");
+				    HttpSession session2 = request.getSession(); 
+				    session2.setAttribute("bank", ch1.getBank());
+					
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ChequeInvoice.jsp");
 					dispatcher.include(request, response);
 			}
 			else

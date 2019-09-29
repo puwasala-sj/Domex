@@ -21,8 +21,8 @@
 	right:125px;  
 	top:0px; ">	
 <div class="navigationbar">
-  	<a href="Home.jsp">Home</a>
-  	<a href="Order.jsp">Order</a>
+  	<a href="HomePage.jsp">Home</a>
+  	<a href="Orders.jsp">Order</a>
   	<a href="PaymentMethod.jsp">Payment Method</a>
   	
 </div>

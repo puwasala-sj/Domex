@@ -35,9 +35,10 @@ body{
 		
 	  	<a href="HomePage.jsp">Home</a>
 	  	<a href="Orders.jsp">Order</a>
-	  	<a href="AddEmployee.jsp">Employees</a>
-	  	<a href="Customer.jsp">Client</a>
-	  	<a href="ListRegularClient.jsp">Client List</a>
+	  	<a href="AddEmployee.jsp">Employee</a>
+	  	<a href="AddVehicle.jsp">Vehicle</a>
+	  	<a href="CorporateClientRegistration.jsp">Corporate Client</a>
+	  	
 	</div>
 </div>
 
@@ -46,7 +47,7 @@ body{
 <nav aria-label="breadcrumb" >
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Regular Clients</li>
+    <li class="breadcrumb-item active" aria-current="page">Regular Client</li>
   </ol>
 </nav>
 

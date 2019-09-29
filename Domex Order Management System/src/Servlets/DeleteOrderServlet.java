@@ -49,7 +49,9 @@ public class DeleteOrderServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		
+        response.setContentType("text/html");
 		
 		int orderID = Integer.parseInt(request.getParameter("deleteOrder"));			
 			
@@ -78,5 +80,4 @@ public class DeleteOrderServlet extends HttpServlet {
 			System.out.println("Error");
 		
 	}
-	
 }

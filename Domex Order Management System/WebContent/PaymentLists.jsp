@@ -20,10 +20,13 @@
 	<div class="navigationbar">
 		
 	  	<a href="HomePage.jsp">Home</a>
+	  	<a href="Admin.jsp">Admin DashBorad</a>
+	  	<a href="OrderList.jsp">Order List</a>
 	  	<a href="EmployeeList.jsp">Employee List</a>
-	  	<a href="ClientList.jsp">Client List</a>
-	  	<a href="PaymentList.jsp">Payment List</a>
-	  	<a href="Customer.jsp">Client</a>
+	  	<a href="VehicleList.jsp">Vehicle List</a>
+	  	<a href="client_registration.jsp">Regular client list</a>
+	  	<a href="CorporateClientRegistration.jsp">Corporate client list</a>
+	  	
 	</div>
 </div>
 
