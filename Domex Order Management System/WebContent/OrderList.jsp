@@ -30,7 +30,7 @@
 </div>
 
 	<h1><center>Orders</center></h1>
-	<table cellpadding="10">
+	<table cellpadding="10" id="headerTable">
          <thead>
 		                                   
 			<th><b>Order ID</b></th>
@@ -88,9 +88,52 @@
 					<%
 					 }
 										
-					%>                            
+					%> 
+					
+					                           
             </tbody>                         
       </table>
+      
+      
+
+	<button id="btnExport" onclick="fnExcelReport();" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;"> EXPORT </button>
+
+
+		<script>
+		
+		function fnExcelReport(){
+			    var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
+			    var textRange; var j=0;
+			    tab = document.getElementById('headerTable'); // id of table
+
+			    for(j = 0 ; j < tab.rows.length ; j++) 
+			    {     
+			        tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+			        //tab_text=tab_text+"</tr>";
+			    }
+
+			    tab_text=tab_text+"</table>";
+			    tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");
+			    tab_text= tab_text.replace(/<img[^>]*>/gi,""); 
+			    tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); 
+
+			    var ua = window.navigator.userAgent;
+			    var msie = ua.indexOf("MSIE "); 
+
+			    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      
+			    {
+			        txtArea1.document.open("txt/html","replace");
+			        txtArea1.document.write(tab_text);
+			        txtArea1.document.close();
+			        txtArea1.focus(); 
+			        sa=txtArea1.document.execCommand("SaveAs",true,"Orders.xls");
+			    }  
+			    else                 
+			        sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
+
+			    return (sa);
+			}
+		</script>
 
 </body>
 </html>
