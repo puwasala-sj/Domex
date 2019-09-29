@@ -84,7 +84,7 @@ button:hover{
 <div class= "container">
 
 
-<form action="UpdationServlet" method="post">
+<form action="UpdateOrders" method="post">
 	<table>		
 	
 			<tr>

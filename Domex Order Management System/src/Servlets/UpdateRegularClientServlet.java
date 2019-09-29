@@ -36,6 +36,7 @@ public class UpdateRegularClientServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		doGet(request, response);
+		response.setContentType("text/html");
 	}
 
 }

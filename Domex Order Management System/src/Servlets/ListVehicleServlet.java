@@ -38,6 +38,7 @@ public class ListVehicleServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		response.setContentType("text/html");
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/VehicleList.jsp");
 		dispatcher.forward(request, response);

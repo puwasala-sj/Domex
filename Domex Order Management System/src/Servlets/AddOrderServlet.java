@@ -59,6 +59,7 @@ public class AddOrderServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		// TODO Auto-generated method stub
 			doGet(request, response);
+			response.setContentType("text/html");
 			
 			Order order = new Order();
 			
@@ -170,126 +171,7 @@ public class AddOrderServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
-		
-
-				
-			/*	try {
-					Class.forName("com.mysql.jdbc.Driver");
-				} catch (ClassNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} 
-			
-				try {
-				Connection con;
-
-				
-				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/domex", "root", "root");
-
-			
-	
-				response.setContentType("text/html");
-				
-				
-				String name = request.getParameter("C_name");
-		
-
-		
-		//request.getParameter("C_name").equals("") ||request.getParameter("Package").equals("") ||request.getParameter("Type").equals("") ||request.getParameter("Type").equals("") ||request.getParameter("kilo").equals("") ||request.getParameter("gram").equals("") || request.getParameter("receiver").equals("") ||
-			//	request.getParameter("Address").equals("") ||request.getParameter("District").equals("") || request.getParameter("Town").equals("") || request.getParameter("date").equals("") || request.getParameter("PostCode").equals("") ) {
-					
-
-
-		
-		
-					//order
-					Order order = new Order();
-					
-					//weight
-					float weight;
-					
-					weight = (float) (Float.parseFloat(request.getParameter("kilo")) +((Float.parseFloat(request.getParameter("gram")))/1000.0));
-					Date date = null;
-					
-					//date from string
-					try {
-						date = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
-					} catch (ParseException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} ;
-					
-					order.setC_name(request.getParameter("C_name"));
-					order.setPackage(request.getParameter("Package"));
-					order.setType(request.getParameter("Type"));
-					order.setWeight(weight);
-					order.setReceiver(request.getParameter("receiver"));
-					order.setAddress(request.getParameter("Address"));
-					order.setDistrict(request.getParameter("District"));
-					order.setTown(request.getParameter("Town"));
-					order.setDate(date);
-					order.setPostCode(Integer.parseInt(request.getParameter("PostCode")));
-					
-					
-					
-						String query1 = "insert into Order(customer_Name , package , type , weight , receiver , address , district , town , postcode , charges )  values(?,?,?,?,?,?,?,?,?,?)";
-					
-						String query2 = "SELECT charge FROM district WHERE district = ?"; 
-						
-						
-						
-						PreparedStatement state = con.prepareStatement(query2);
-						ResultSet result = state.executeQuery(query2);
-						
-						
-						Float charge = result.getFloat("charges");
-						
-						float charges = charge * weight ;
-						
-						order.setCharges(charges);
-						
-							
-							PreparedStatement statement = con.prepareStatement(query1);
-							
-							statement.setString(1, order.getC_name());
-							statement.setString(2, order.getPackage() );
-							statement.setString(3, order.getType());
-							statement.setFloat(4,order.getWeight());
-							statement.setString(5, order.getReceiver());
-							statement.setString(6,order.getAddress() );
-							statement.setString(7, order.getDistrict());
-							statement.setString(8, order.getTown());
-							statement.setInt(9, order.getPostCode());
-							statement.setFloat(10, order.getCharges());
-							state.setString(1 , order.getDistrict());
-							
-						
-			
-			
-				
-			
-					request.setAttribute("order", order.getCharges());
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("PaymentMethod.jsp");
-					dispatcher.forward(request, response);
-				
-				
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-		*/
-		
-		//response.sendRedirect("PaymentMethod.jsp");
-			
-//			float order = 87;
-//			
-//		    HttpSession session = request.getSession(); 
-//		    session.setAttribute("order", order);
-//
-//		    response.sendRedirect("PaymentMethod.jsp");
-			
-		}
+	}
 	
 
 

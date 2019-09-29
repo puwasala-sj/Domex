@@ -44,6 +44,8 @@ public class AddEmployeeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		response.setContentType("text/html");
+		
 		Employee employee = new Employee();
 		
 		String fname = request.getParameter("fname");

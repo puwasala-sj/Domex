@@ -77,7 +77,7 @@
 							<input type="submit" name="btnDelete" value="Delete" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;">
 						</form>
 						
-						<form action="UpdateOrderServlet" method="post">
+						<form action="GetOrderUpdateServlet" method="post">
 							<input type="hidden" name="updateOrder" value="<%=o.getOrderID()%>">
 							<input type="submit" name="btnUpdate" value="update" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;">
 						</form>
