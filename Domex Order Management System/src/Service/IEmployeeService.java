@@ -2,7 +2,6 @@ package Service;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import Model.Employee;
 
 public interface IEmployeeService {
@@ -12,5 +11,9 @@ public interface IEmployeeService {
 	public ArrayList<Employee> getEmployee() throws SQLException;
 
 	boolean deleteEmployee(int employeeID) throws SQLException;
+	
+	public ArrayList<Employee> getEmployeeInfo(int employeeID) throws SQLException;
+	
+	boolean updateEmployee(Employee e1) throws SQLException;	
 
 }

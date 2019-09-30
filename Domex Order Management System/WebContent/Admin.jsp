@@ -64,6 +64,21 @@
                     </a>
                 </li>
                 <li>
+                    <a href="">
+                        <i class="pe-7s-note2"></i>
+                        <form method="POST" action="ListOrderServlet">
+						<table>
+						<tr>
+						<br><br>
+				<td colspan="2"><input type="submit" value="List All Orders" class="list-button" />
+						</td>
+						</tr>
+						</table>
+						</form>
+                        
+                    </a>
+                </li>
+                <li>
                     <a href="CashList.jsp">
                         <i class="pe-7s-note2"></i>
                         <form method="POST" action="ListCashPaymentServlet">
@@ -117,7 +132,7 @@
 						<table>
 						<tr>
 						<br><br>
-				<td colspan="2"><input type="submit" value="List All Employee" class="list-button" />
+				<td colspan="2"><input type="submit" value="List All Employees" class="list-button" />
 						</td>
 						</tr>
 						</table>
@@ -132,7 +147,7 @@
 						<table>
 						<tr>
 						<br><br>
-				<td colspan="2"><input type="submit" value="List Regular Client" class="list-button" />
+				<td colspan="2"><input type="submit" value="List All Vehicles" class="list-button" />
 						</td>
 						</tr>
 						</table>
@@ -140,6 +155,7 @@
                         
                     </a>
                 </li>
+                 
                 <li>
                     <a href="VehicleList.jsp">
                         <i class="pe-7s-note2"></i>
@@ -155,21 +171,7 @@
                         
                     </a>
                 </li>
-                <li>
-                    <a href="">
-                        <i class="pe-7s-note2"></i>
-                        <form method="POST" action="ListPaymentServlet">
-						<table>
-						<tr>
-						<br><br>
-				<td colspan="2"><input type="submit" value="List All Orders" class="list-button" />
-						</td>
-						</tr>
-						</table>
-						</form>
-                        
-                    </a>
-                </li>
+               
 
             </ul>
     	</div>

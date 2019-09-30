@@ -8,7 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
+import Model.CardPayment;
+import Model.ChequePayment;
 import Model.Order;
 import Util.myDB;
 
@@ -22,7 +23,7 @@ public class IOrderServiceImplement implements OrderService {
 
 	@Override
 	public boolean addNewOrder(Order order) throws SQLException {
-		String sql = "insert into `order`(`orderID` , `customer_Name` , `packages` , `type` , `weight` , `receiver` , `address` , `district` , `town` , `postcode` , `charge` ) values(?,?,?,?,?,?,?,?,?,?,?);";
+		String sql = "insert into `order`(`orderID` , `customer_Name` , `packages` , `type` , `weight` , `receiver` , `address` , `district` , `town` , `postCode` , `charge` ) values(?,?,?,?,?,?,?,?,?,?,?);";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		
 		ps.setObject(1,order.getOrderID());
@@ -54,17 +55,17 @@ public class IOrderServiceImplement implements OrderService {
 			
 			Order o= new Order();
 			
-			o.setOrderID(result.getInt("orderID"));	System.out.println(o.getOrderID());
-			o.setCustomer_Name(result.getString("customer_Name"));System.out.println(o.getCustomer_Name());
-			o.setPackages(result.getString("packages"));System.out.println(o.getPackages());
-			o.setType(result.getString("type"));System.out.println(o.getType());
-			o.setWeight(result.getFloat("weight"));System.out.println(o.getWeight());
-			o.setReceiver(result.getString("receiver"));System.out.println(o.getReceiver());
-			o.setAddress(result.getString("address"));System.out.println(o.getDistrict());
-			o.setDistrict(result.getString("district"));System.out.println(o.getAddress());
-			o.setTown(result.getString("town"));System.out.println(o.getTown());
-			o.setPostCode(result.getInt("postCode"));System.out.println(o.getPostCode());
-			o.setCharge(result.getFloat("charge"));System.out.println(o.getCharge());
+			o.setOrderID(result.getInt("orderID"));	
+			o.setCustomer_Name(result.getString("customer_Name"));
+			o.setPackages(result.getString("packages"));
+			o.setType(result.getString("type"));
+			o.setWeight(result.getFloat("weight"));
+			o.setReceiver(result.getString("receiver"));
+			o.setAddress(result.getString("address"));
+			o.setDistrict(result.getString("district"));
+			o.setTown(result.getString("town"));
+			o.setPostCode(result.getInt("postCode"));
+			o.setCharge(result.getFloat("charge"));
 			
 			oList.add(o);
 			
@@ -82,9 +83,9 @@ public class IOrderServiceImplement implements OrderService {
 	}
 	
 	@Override
-	public ArrayList<Order> getOrderInfo(int OrderID) throws SQLException {
+	public ArrayList<Order> getOrderInfo(int orderID) throws SQLException {
 		// TODO Auto-generated method stub
-		String sql = "select * from `order` where chequePID  = '"+OrderID+"'";
+		String sql = "select * from `order` where orderID  = '"+orderID+"'";
 		Statement stm = conn.createStatement();
 		ResultSet result = stm.executeQuery(sql);
 		
@@ -114,10 +115,9 @@ public class IOrderServiceImplement implements OrderService {
 	}
 	
 	@Override
-	public boolean updateCardInfo(Order order) throws SQLException {
+	public boolean updateOrderInfo(Order order) throws SQLException {
 		// TODO Auto-generated method stub
-
-		String sql = "UPDATE `order` SET `orderID` =? , `customer_Name`=? , `packages`=? , `type`=? , `weight`=? , `receiver`=? , `address`=? , `district`=? , `town`=? , `postcode`=? , `charge`=? where `orderID' = " + order.getOrderID();
+		String sql = "UPDATE `order` SET `orderID` = ? , `customer_Name`= ? , `packages`= ? , `type`= ? , `weight`= ? , `receiver`= ? , `address`= ? , `district`= ? , `town`= ? , `postcode`= ? , `charge`= ? where `orderID` = " + order.getOrderID();
 		PreparedStatement ps = conn.prepareStatement(sql);
 		
 		ps.setObject(1,order.getOrderID());
@@ -135,5 +135,5 @@ public class IOrderServiceImplement implements OrderService {
 		int res = ps.executeUpdate();
 		
 		return res > 0;
-	}
+	}   	
 }

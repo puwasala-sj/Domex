@@ -55,8 +55,6 @@
 			<label for="name">Vehicle Brand:</label> 
 			<input type="text" id="vehicleBrand" name="vehicleBrand">
 			
-			<label for="name">Vehicle Number:</label> 
-			<input type="text" id="vehicleNumber" name="vehicleNumber" >
 			
 			<label for="name">Employee ID:</label> 
 			<input type="text" id="eid" name="eid" required >

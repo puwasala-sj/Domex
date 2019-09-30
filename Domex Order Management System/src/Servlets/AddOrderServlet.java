@@ -55,10 +55,10 @@ public class AddOrderServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		// TODO Auto-generated method stub
+
 		//doGet(request, response);
-			
-		Order order = new Order();
-		
+        Order order = new Order();
+
 		String customer_Name = request.getParameter("customer_Name");
 		String packages = request.getParameter("packages");
 		String type = request.getParameter("type");
@@ -119,7 +119,7 @@ public class AddOrderServlet extends HttpServlet {
 			writer.println("alert('Town must be letters only')");
 			writer.println("</script>");
 			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CashPayment.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Orders.jsp");
 			dispatcher.include(request, response);
 			
 		}
@@ -156,7 +156,34 @@ public class AddOrderServlet extends HttpServlet {
 				    HttpSession session = request.getSession(); 
 				    session.setAttribute("order", order.getCharge());
 					
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PaymentMethod.jsp");
+				    HttpSession session1 = request.getSession(); 
+				    session1.setAttribute("customer_Name", order.getCustomer_Name());
+					
+				    HttpSession session2 = request.getSession(); 
+				    session2.setAttribute("packages", order.getPackages());
+				    
+				    HttpSession session3 = request.getSession(); 
+				    session1.setAttribute("type", order.getType());
+					
+				    HttpSession session4 = request.getSession(); 
+				    session2.setAttribute("weight", order.getWeight());
+				    
+				    HttpSession session5 = request.getSession(); 
+				    session1.setAttribute("receiver", order.getReceiver());
+					
+				    HttpSession session6 = request.getSession(); 
+				    session2.setAttribute("address", order.getAddress());
+				    
+				    HttpSession session7 = request.getSession(); 
+				    session1.setAttribute("district", order.getDistrict());
+					
+				    HttpSession session8 = request.getSession(); 
+				    session2.setAttribute("town", order.getTown());
+				    
+				    HttpSession session9 = request.getSession(); 
+				    session1.setAttribute("postCode", order.getPostCode());
+				    
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Orders.jsp");
 					dispatcher.include(request, response);
 			}
 			else
@@ -168,6 +195,5 @@ public class AddOrderServlet extends HttpServlet {
 		}
 	}
 }
-	
 
 

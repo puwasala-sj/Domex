@@ -43,7 +43,7 @@ public class DeleteCashPaymentServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		
+
 		int cashPID = Integer.parseInt(request.getParameter("deletePayment"));			
 		
 		IOrderPaymentService ipaymentService = new IOrderPaymentServiceImplement();

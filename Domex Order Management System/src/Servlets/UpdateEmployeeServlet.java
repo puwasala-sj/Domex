@@ -2,11 +2,7 @@ package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
-import Model.District;
-import Model.Order;
-import Service.IOrderServiceImplement;
-import Service.OrderService;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,20 +10,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.util.*;
-import java.sql.*;
+
+import Model.Employee;
+import Service.IEmployeeService;
+import Service.EmployeeServiceImplement;
+
 /**
- * Servlet implementation class UpdateOrderServlet
+ * Servlet implementation class UpdateEmployee
  */
-@WebServlet("/UpdateOrderServlet")
-public class UpdateOrderServlet extends HttpServlet {
+@WebServlet("/UpdateEmployeeServlet")
+public class UpdateEmployeeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateOrderServlet() {
+    public UpdateEmployeeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -45,39 +43,38 @@ public class UpdateOrderServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-        doGet(request, response);
+		doGet(request, response);
 		response.setContentType("text/html");
 		
-		Order order = new Order();
-
-		String customer_Name = request.getParameter("customer_Name");
-		String packages = request.getParameter("packages");
-		String type = request.getParameter("type");
-		float weight = (float) (Float.parseFloat(request.getParameter("kilo")) +((Float.parseFloat(request.getParameter("gram")))/1000.0));
-		String receiver = request.getParameter("receiver");
-		String address = request.getParameter("address");
-		String district = request.getParameter("district");
-		String town = request.getParameter("town");
-		int postCode = Integer.parseInt(request.getParameter("postCode"));
-		float charge = weight * 150;
-
-		order.setCustomer_Name(customer_Name);
-		order.setPackages(packages);
-		order.setType(type);
-		order.setWeight(weight);
-		order.setReceiver(receiver);
-		order.setAddress(address);
-		order.setDistrict(district);
-		order.setTown(town);
-		order.setPostCode(postCode);
-		order.setCharge(charge);
+		Employee e1 = new Employee();
 		
-		OrderService iOrderService = new IOrderServiceImplement();
-
+		int employeeID = Integer.parseInt(request.getParameter("employeeID"));
+		String fname = request.getParameter("fname");
+		String lname = request.getParameter("lname");
+		String address = request.getParameter("address");
+		String gender = request.getParameter("gender");
+		String dob = request.getParameter("dob");
+		String contactNo = request.getParameter("contactNo");
+		String email = request.getParameter("email");
+		String qualifications = request.getParameter("qualifications");
+		String type = request.getParameter("type");
+	
+		e1.setEmployeeID(employeeID);
+		e1.setFname(fname);
+		e1.setLname(lname);
+		e1.setAddress(address);
+		e1.setGender(gender);
+		e1.setDob(dob);
+		e1.setContactNo(contactNo);
+		e1.setEmail(email);
+		e1.setQualifications(qualifications);
+		e1.setType(type);
+		
+		IEmployeeService serv = new EmployeeServiceImplement();
+		
 		boolean isAdded = false;
 		try {
-			isAdded= iOrderService.updateOrderInfo(order);
+			isAdded= serv.updateEmployee(e1);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -89,10 +86,12 @@ public class UpdateOrderServlet extends HttpServlet {
 				writer.println("alert('Updated succesfully')");
 				writer.println("</script>");
 				
-				RequestDispatcher dispatcher= getServletContext().getRequestDispatcher("/ListOrder.jsp");
+				RequestDispatcher dispatcher= getServletContext().getRequestDispatcher("/EmployeeList.jsp");
 				dispatcher.include(request, response);
 						
 		}
-    }
+			
+		
+	}
 
 }

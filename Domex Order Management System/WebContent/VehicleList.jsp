@@ -21,11 +21,8 @@
 	top:0px; ">	
 	<div class="navigationbar">
 		
-	  	<a href="Home.jsp">Home</a>
-	  	<a href="Orders.jsp">Order</a>
-	  	<a href="AddEmployee.jsp">Employees</a>
-	  	<a href="AddVehicle.jsp">Vehicle</a>
-	  	<a href="Customer.jsp">Client</a>
+	  	<a href="HomePage.jsp">Home</a>
+	  	<a href="Admin.jsp">Admin Dashboard</a>
 	</div>
 </div>
 <br>
@@ -59,7 +56,15 @@
 					<td>
 					   <form action="DeleteVehicleServlet" method="post">
 							<input type="hidden" name="deleteVehicle" value="<%=v1.getVehicleID()%>">
-							<input type="submit" name="btnDelete" value="Delete" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;">
+							<input type="submit" name="btnDelete" value="Delete" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;cursor: pointer;border-radius: 5%;font-weight:bold;">
+						</form>
+											
+					</td>
+					
+					<td>
+					   <form action="GetVehicleServlet" method="post">
+							<input type="hidden" name="updateVehicle" value="<%=v1.getVehicleID()%>">
+							<input type="submit" name="btnUpdate" value="Update" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;cursor: pointer;border-radius: 5%;font-weight:bold;">
 						</form>
 											
 					</td>

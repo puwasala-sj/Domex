@@ -25,13 +25,6 @@
 		
 	  	<a href="HomePage.jsp">Home</a>
 	  	<a href="Admin.jsp">Admin DashBorad</a>
-	  	<a href="OrderList.jsp">Order List</a>
-	  	<a href="EmployeeList.jsp">Employee List</a>
-	  	<a href="VehicleList.jsp">Vehicle List</a>
-	  	<a href="client_registration.jsp">Regular client list</a>
-	  	<a href="CorporateClientRegistration.jsp">Corporate client list</a>
-	  	<a href="ChequeList.jsp">Cheque List</a>
-	  	<a href="CashList.jsp">Cash List</a>
 	  	
 	</div>
 </div>

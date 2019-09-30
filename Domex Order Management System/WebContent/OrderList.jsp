@@ -23,14 +23,6 @@
 	<div class="navigationbar">
 	  	<a href="HomePage.jsp">Home</a>
 	  	<a href="Admin.jsp">Admin DashBorad</a>
-	  	<a href="OrderList.jsp">Order List</a>
-	  	<a href="EmployeeList.jsp">Employee List</a>
-	  	<a href="VehicleList.jsp">Vehicle List</a>
-	  	<a href="client_registration.jsp">Regular client list</a>
-	  	<a href="CorporateClientRegistration.jsp">Corporate client list</a>
-	  	<a href="CashList.jsp">Cash List</a>
-	  	<a href="ChequeList.jsp">Cheque List</a>
-	  	<a href="CardList.jsp">Card List</a>
 	</div>
 </div>
 
@@ -79,12 +71,12 @@
 					<td>
 					   <form action="DeleteOrderServlet" method="post">
 							<input type="hidden" name="deleteOrder" value="<%=o.getOrderID()%>">
-							<input type="submit" name="btnDelete" value="Delete" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;">
+							<input type="submit" name="btnDelete" value="Delete" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;cursor: pointer;border-radius: 5%;font-weight:bold;">
 						</form>
-						
-						<form action="UpdateOrderServlet" method="post">
+					
+						<form action="GetOrderServlet" method="post">
 							<input type="hidden" name="updateOrder" value="<%=o.getOrderID()%>">
-							<input type="submit" name="btnUpdate" value="update" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;">
+							<input type="submit" name="btnUpdate" value="Update" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;cursor: pointer;border-radius: 5%;font-weight:bold;">
 						</form>
 											
 					</td>

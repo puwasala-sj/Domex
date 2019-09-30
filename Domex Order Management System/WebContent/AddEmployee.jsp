@@ -55,10 +55,12 @@
 			<input type="text" id="address" name="address">
 			
 			<label for="name">Gender:</label> 
-			<input type="text" id="gender" name="gender">
+			<input type="radio"  value= "male" name="gender" checked>Male &nbsp; &nbsp;
+			<input type="radio"  value= "female" name="gender">Female <br><br>
+			
 			
 			<label for="name">Date of Birth:</label> 
-			<input type="text" id="dob" name="dob">
+			<input type="date" id="dob" name="dob">
 			
 			<label for="name">Contact Number:</label> 
 			<input type="text" id="contactNo" name="contactNo"> 
@@ -69,8 +71,21 @@
 			<label for="name">Qualifications:</label> 
 			<input type="text" id="qualifications" name="qualifications">
 			
-			<label for="name"> Employee Type: </label> 
-			<input type="text" id="type" name="type"> 
+			<tr>
+		
+			
+				<td><label for="name"> Employee Type: </label> </td>
+		     	<td>
+		     	
+		     	<select class="browser-default customer-select" name="type" style="width:200px;">
+		     		<option value="admin">Administrator</option>
+		     		<option value="supervisor">Supervisor</option>
+		     		<option value="operator">Operator</option>
+		     		<option value="driver">Driver</option>
+		     	</select>
+		     	</td>
+		     </tr>
+		     </br></br></br></br>
 			 
 			
 

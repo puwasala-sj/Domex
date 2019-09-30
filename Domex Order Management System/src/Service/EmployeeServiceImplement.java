@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import Model.ChequePayment;
 import Model.Employee;
 import Util.myDB;
 
@@ -75,6 +76,54 @@ public class EmployeeServiceImplement implements IEmployeeService {
 		Statement stm = conn.createStatement();
 		
 		return stm.executeUpdate(sql) > 0;
+	}
+
+	@Override
+	public ArrayList<Employee> getEmployeeInfo(int employeeID) throws SQLException {
+		// TODO Auto-generated method stub
+		String sql = "select * from employee where employeeID  = '"+employeeID+"'";
+		Statement stm = conn.createStatement();
+		ResultSet rst = stm.executeQuery(sql);
+		
+		ArrayList<Employee> list = new ArrayList<Employee>();
+		while(rst.next()) {	
+			Employee e1= new Employee();
+			
+			e1.setEmployeeID(rst.getInt("employeeID"));
+			e1.setFname(rst.getString("fname"));
+			e1.setLname(rst.getString("lname"));
+			e1.setAddress(rst.getString("address"));
+			e1.setGender(rst.getString("gender"));
+			e1.setDob(rst.getString("dob"));
+			e1.setContactNo(rst.getString("contactNo"));
+			e1.setEmail(rst.getString("email"));
+			e1.setQualifications(rst.getString("qualifications"));
+			e1.setType(rst.getString("type"));
+			
+			list.add(e1);
+		}
+		return list;
+	}
+
+	@Override
+	public boolean updateEmployee(Employee e1) throws SQLException {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE employee SET employeeID = ?, fname = ?, lname = ?, address = ?, gender = ?, dob = ?, contactNo = ?, email = ?, qualifications = ?, type = ? where employeeID = " + e1.getEmployeeID();
+		PreparedStatement stm = conn.prepareStatement(sql);
+		stm.setObject(1,e1.getEmployeeID());
+		stm.setObject(2,e1.getFname());
+		stm.setObject(3,e1.getLname());
+		stm.setObject(4,e1.getAddress());
+		stm.setObject(5,e1.getGender());
+		stm.setObject(6,e1.getDob());
+		stm.setObject(7,e1.getContactNo());
+		stm.setObject(8,e1.getEmail());
+		stm.setObject(9,e1.getQualifications());
+		stm.setObject(10,e1.getType());
+		
+		int res = stm.executeUpdate();
+		
+		return res>0;
 	}
 
 }

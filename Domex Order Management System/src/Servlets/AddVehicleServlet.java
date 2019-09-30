@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Model.Vehicle;
 import Service.IVehicleService;
@@ -44,7 +45,7 @@ public class AddVehicleServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		
+
 		Vehicle vehicle = new Vehicle();
 		
 		
@@ -65,6 +66,19 @@ public class AddVehicleServlet extends HttpServlet {
 			
 		}
 		
+		else if(!vehicleNumber.matches("[A-Za-z0-9,]+")) {
+			PrintWriter writer = response.getWriter();
+			
+			writer.println("<script>");
+			writer.println("alert('vehicle Number must be letters and Numbers only')");
+			writer.println("</script>");
+			
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddVehicle.jsp");
+			
+			dispatcher.include(request, response);
+			
+		}
+		
 		else if(!vehicleBrand.matches("^[a-zA-Z]+$")) {
 			PrintWriter writer = response.getWriter();
 			
@@ -77,6 +91,20 @@ public class AddVehicleServlet extends HttpServlet {
 			dispatcher.include(request, response);
 			
 		}
+		
+		else if(!vehicleModel.matches("[A-Za-z0-9,]+")) {
+			PrintWriter writer = response.getWriter();
+			
+			writer.println("<script>");
+			writer.println("alert('vehicle Model must be letters and Numbers only')");
+			writer.println("</script>");
+			
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddVehicle.jsp");
+			
+			dispatcher.include(request, response);
+			
+		}
+		
 		
 		
 		
@@ -103,6 +131,18 @@ public class AddVehicleServlet extends HttpServlet {
 					writer.println("<script>");
 					writer.println("alert('Added Successfully')");
 					writer.println("</script>");
+					
+					HttpSession session1 = request.getSession(); 
+				    session1.setAttribute("vehicleNumber", vehicle.getVehicleNumber());
+					
+				    HttpSession session2 = request.getSession(); 
+				    session1.setAttribute("vehicleModel", vehicle.getVehicleModel());
+					
+				    HttpSession session3 = request.getSession(); 
+				    session2.setAttribute("vehicleBrand", vehicle.getVehicleBrand());
+				    
+				    HttpSession session4 = request.getSession(); 
+				    session2.setAttribute("eid", vehicle.getEid());			    
 					
 					
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddVehicle.jsp");

@@ -52,7 +52,6 @@ public class DeleteOrderServlet extends HttpServlet {
 		//doGet(request, response);
 		
         response.setContentType("text/html");
-		
 		int orderID = Integer.parseInt(request.getParameter("deleteOrder"));			
 			
 		

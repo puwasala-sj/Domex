@@ -3,6 +3,7 @@ package Service;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import Model.CardPayment;
 import Model.Order;
 
 public interface OrderService {
@@ -13,8 +14,7 @@ public interface OrderService {
 
 	boolean deleteOrder(int orderID) throws SQLException;
 
-	ArrayList<Order> getOrderInfo(int OrderID) throws SQLException;
+	ArrayList<Order> getOrderInfo(int orderID) throws SQLException;
 
-	boolean updateCardInfo(Order o) throws SQLException;
-
+	boolean updateOrderInfo(Order o) throws SQLException;
 }

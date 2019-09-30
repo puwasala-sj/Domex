@@ -43,7 +43,7 @@ public class DeleteEmployeeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		
+
 		int employeeID = Integer.parseInt(request.getParameter("deleteEmployee"));			
 		
 		IEmployeeService iEmployeeService = new EmployeeServiceImplement();

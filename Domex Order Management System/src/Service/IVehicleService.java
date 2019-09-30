@@ -2,7 +2,6 @@ package Service;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import Model.Vehicle;
 
 public interface IVehicleService {
@@ -13,5 +12,7 @@ public interface IVehicleService {
 
 	boolean deleteVehicle(int vehicleID) throws SQLException;
 
+	public ArrayList<Vehicle> getVehicleInfo(int vehicleID) throws SQLException;
 	
+	boolean updateVehicle(Vehicle v1) throws SQLException;	
 }

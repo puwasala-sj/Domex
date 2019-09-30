@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Model.Employee;
 import Service.EmployeeServiceImplement;
@@ -43,8 +44,9 @@ public class AddEmployeeServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		//doGet(request, response);
-		Employee employee = new Employee();
+        Employee employee = new Employee();
 		
 		String fname = request.getParameter("fname");
 		String lname = request.getParameter("lname");
@@ -86,29 +88,20 @@ public class AddEmployeeServlet extends HttpServlet {
 			dispatcher.include(request, response);
 			
 		}
-		else if(!address.matches("^[a-zA-Z]+$")) {
+		else if(!address.matches("[A-Za-z0-9,/]+")) {
 			PrintWriter writer = response.getWriter();
 			
 			writer.println("<script>");
-			writer.println("alert('Address must be letters only')");
+			writer.println("alert('Address can be contain only letters,numbers, / and ,')");
 			writer.println("</script>");
 			
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddEmployee.jsp");
 			dispatcher.include(request, response);
 			
-		}
-		else if(!gender.matches("^[a-zA-Z]+$")) {
-			PrintWriter writer = response.getWriter();
-			
-			writer.println("<script>");
-			writer.println("alert('Gender must be letters only')");
-			writer.println("</script>");
-			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddEmployee.jsp");
-			dispatcher.include(request, response);
-	
-			
-		}
+		} 
+		
+		 //Gender radio button
+		
 		else if(!contactNo.matches("^[0-9]+$")) {
 			PrintWriter writer = response.getWriter();
 			
@@ -132,16 +125,20 @@ public class AddEmployeeServlet extends HttpServlet {
 			req.include(request, response);
 			}
 			
-		else if(!type.matches("^[a-zA-Z]+$")) {
+		else if(!qualifications.matches("[A-Za-z0-9,/]+")) {
 			PrintWriter writer = response.getWriter();
 			
 			writer.println("<script>");
-			writer.println("alert('Type must be letters only')");
+			writer.println("alert('Qualification can be contain only letters,numbers, / and ,')");
 			writer.println("</script>");
 			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("AddEmployee.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddEmployee.jsp");
 			dispatcher.include(request, response);
-		}
+			
+		} 
+		
+		
+		
 		else {
 			employee.setFname(fname);
 			employee.setLname(lname);
@@ -169,8 +166,34 @@ public class AddEmployeeServlet extends HttpServlet {
 					writer.println("alert('Added Successfully')");
 					writer.println("</script>");
 					
+					HttpSession session1 = request.getSession(); 
+				    session1.setAttribute("fname", employee.getFname());
 					
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/EmployeeList.jsp");
+				    HttpSession session2 = request.getSession(); 
+				    session1.setAttribute("lname", employee.getLname());
+					
+				    HttpSession session3 = request.getSession(); 
+				    session2.setAttribute("address", employee.getAddress());
+				    
+				    HttpSession session4 = request.getSession(); 
+				    session2.setAttribute("gender", employee.getGender());
+				    
+				    HttpSession session5 = request.getSession(); 
+				    session2.setAttribute("dob", employee.getDob());
+				    
+				    HttpSession session6 = request.getSession(); 
+				    session2.setAttribute("contactNo", employee.getContactNo());
+				    
+				    HttpSession session7 = request.getSession(); 
+				    session2.setAttribute("email", employee.getEmail());
+				    
+				    HttpSession session8 = request.getSession(); 
+				    session2.setAttribute("qualifications", employee.getQualifications());
+				    
+				    HttpSession session9 = request.getSession(); 
+				    session2.setAttribute("type", employee.getType());	    
+				
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddEmployee.jsp");
 					dispatcher.include(request, response);
 			}
 			else

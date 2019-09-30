@@ -11,19 +11,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Model.Vehicle;
+import Service.IVehicleService;
 import Service.VehicleServiceImplement;
 
 /**
- * Servlet implementation class DeleteVehicleServlet
+ * Servlet implementation class UpdateEmployee
  */
-@WebServlet("/DeleteVehicleServlet")
-public class DeleteVehicleServlet extends HttpServlet {
+@WebServlet("/UpdateVehicleServlet")
+public class UpdateVehicleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteVehicleServlet() {
+    public UpdateVehicleServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,34 +43,47 @@ public class DeleteVehicleServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doGet(request, response);
+		response.setContentType("text/html");
+		
+		Vehicle v1 = new Vehicle();
+		
+		int vehicleID = Integer.parseInt(request.getParameter("vehicleID"));
 
-		//doGet(request, response);
+		String vehicleNumber = request.getParameter("vehicleNumber");
+		String vehicleBrand = request.getParameter("vehicleBrand");
+		String vehicleModel = request.getParameter("vehicleModel");
+		int eid = Integer.parseInt(request.getParameter("eid"));
 		
-        int vehicleID =Integer.parseInt(request.getParameter("deleteVehicle"));			
+		v1.setVehicleID(vehicleID);
+		v1.setVehicleNumber(vehicleNumber);
+		v1.setVehicleModel(vehicleModel);
+		v1.setVehicleBrand(vehicleBrand);
+		v1.setEid(eid);
 		
-		VehicleServiceImplement iVehicleService = new VehicleServiceImplement();
 		
-		boolean isDeleted = false;
+		IVehicleService serv = new VehicleServiceImplement();
+		
+		boolean isAdded = false;
 		try {
-			isDeleted = iVehicleService.deleteVehicle(vehicleID);
+			isAdded= serv.updateVehicle(v1);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		if(isDeleted==true) {
-			
-			PrintWriter writer = response.getWriter();
-			
-			writer.println("<script>");
-			writer.println("alert('Deleted Successfully')");
-			writer.println("</script>");
-			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/VehicleList.jsp");
-			dispatcher.include(request, response);
-		}else
-			System.out.println("Error");
-	
+		if(isAdded==true) {
+				
+				PrintWriter writer= response.getWriter();
+				writer.println("<script>");
+				writer.println("alert('Updated succesfully')");
+				writer.println("</script>");
+				
+				RequestDispatcher dispatcher= getServletContext().getRequestDispatcher("/VehicleList.jsp");
+				dispatcher.include(request, response);
+						
 		}
+			
+		
+	}
 
 }
