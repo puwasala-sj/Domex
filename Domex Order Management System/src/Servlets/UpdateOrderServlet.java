@@ -50,18 +50,20 @@ public class UpdateOrderServlet extends HttpServlet {
 		response.setContentType("text/html");
 		
 		Order order = new Order();
-
+		
+		int orderID = Integer.parseInt(request.getParameter("orderID"));
 		String customer_Name = request.getParameter("customer_Name");
 		String packages = request.getParameter("packages");
 		String type = request.getParameter("type");
-		float weight = (float) (Float.parseFloat(request.getParameter("kilo")) +((Float.parseFloat(request.getParameter("gram")))/1000.0));
+		float weight = (float) (Float.parseFloat(request.getParameter("kilo")));
 		String receiver = request.getParameter("receiver");
 		String address = request.getParameter("address");
 		String district = request.getParameter("district");
 		String town = request.getParameter("town");
 		int postCode = Integer.parseInt(request.getParameter("postCode"));
 		float charge = weight * 150;
-
+		
+		order.setOrderID(orderID);
 		order.setCustomer_Name(customer_Name);
 		order.setPackages(packages);
 		order.setType(type);
@@ -72,7 +74,7 @@ public class UpdateOrderServlet extends HttpServlet {
 		order.setTown(town);
 		order.setPostCode(postCode);
 		order.setCharge(charge);
-		
+
 		OrderService iOrderService = new IOrderServiceImplement();
 
 		boolean isAdded = false;
@@ -94,5 +96,4 @@ public class UpdateOrderServlet extends HttpServlet {
 						
 		}
     }
-
 }

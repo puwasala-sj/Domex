@@ -44,8 +44,8 @@ public class AddChequePaymentServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		//doGet(request, response);
-		
 		ChequePayment ch1 = new ChequePayment();
 		
 		String amount = request.getParameter("amount");

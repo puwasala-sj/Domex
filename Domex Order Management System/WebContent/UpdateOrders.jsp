@@ -1,5 +1,9 @@
-<%@page import="Model.District"%>
+
 <%@page import="java.util.*"%>
+<%@ page import="Model.Order" %>
+<%@ page import="Service.OrderService" %>
+<%@ page import="Service.IOrderServiceImplement"%>    
+<%@ page import="java.util.ArrayList"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -85,12 +89,10 @@ button:hover{
 
 <div class= "container">
 
-
 <form action="UpdateOrderServlet" method="post">
-
 	<% ArrayList<Order> list1 = (ArrayList<Order>)request.getAttribute("order");
 					for(Order order: list1){
-						%>
+						%>	
 	<table>		
 	
 			<tr>
@@ -100,27 +102,29 @@ button:hover{
 			
 			<tr>
 				<td><label for="exampleFormControlInput1">Customer Name</label></td>
-				<td><input type="text" name="customer_Name" class="form-control" value="<%= order.getCustomer_Name()%>" required/></td>
+				<td><input type="text" name="customer_Name" id="customer_Name" class="form-control"  value="<%=order.getCustomer_Name()%>" required/></td>
 			</tr>
+			
+			
 			
 			<tr>
 				<td><label for="exampleFormControlInput1">Package</label></td>
 				<td><input type="radio" name="packages" value="Parcel"
-					checked="checked" tabindex="1" class="form-check-input" id="radio1" value="<%= order.getPackages()%>" required /><label class="form-check-label" for="exampleRadios1"> Parcel</label> </td>
+					checked="checked" tabindex="1" class="form-check-input" value="<%=order.getPackages()%>"  required /><label class="form-check-label" for="exampleRadios1"> Parcel</label> </td>
 			</tr>
 			
 			
 			<tr>
 				<td></td>
 				<td><input type="radio" name="packages" value="Document"
-					tabindex="2" class="form-check-input" id="radio2" value="<%= order.getPackages()%>" required/><label class="form-check-label" for="exampleRadios1"> Document</label></td>
+					tabindex="2" class="form-check-input" id="radio2" value="<%=order.getPackages()%>" required/><label class="form-check-label" for="exampleRadios1"> Document</label></td>
 			</tr>
 			
 			<tr>
 				<td> <label for="exampleFormControlSelect1">Type</label></td>
-				<td><select class="form-control"  >
-						<option name="type" value="Lightweight" value="<%= order.getType()%>" required/>LW</option>
-						<option name="type" value="Heavyweight" value="<%= order.getType()%>" required/>HW</option>
+				<td><select class="form-control" name="type" >
+						<option  value="Lightweight" value="<%=order.getType()%>"  >LW</option>
+						<option  value="Heavyweight"value="<%=order.getType()%>" >HW</option>
 					</select></td>
 			</tr>
 			
@@ -128,41 +132,41 @@ button:hover{
 			
 			<tr>
 				<td><label for="exampleFormControlSelect1">Weight</label></td>
-				<td><input type="number" name="kilo" min="0" max="100" class="form-control" value="<%= order.getWeight()%>" required style="width: 180px;"><label for="exampleFormControlSelect1">Kilograms</label></td>
-				<td><input type="number" name="gram" min="0" max="999" class="form-control" value="<%= order.getWeight()%>" required style="width: 180px;"><label for="exampleFormControlSelect1">Grams</label></td>
+				<td><input type="number" name="kilo" id="kilo" min="0" max="100" class="form-control" value="<%=order.getWeight()%>" required style="width: 180px;"><label for="exampleFormControlSelect1">Kilograms</label></td>
+				<td><input type="number" name="gram" id="gram" min="0" max="999" class="form-control" value="<%=order.getWeight()%>" required style="width: 180px;"><label for="exampleFormControlSelect1">Grams</label></td>
 			</tr>
 			
 			<tr>
 				<td><label for="exampleFormControlSelect1">Receiver</label></td>
-				<td><input type="text" name="receiver" class="form-control"  value="<%= order.getReceiver()%>" required/></td>
+				<td><input type="text" name="receiver" id="receiver" class="form-control" value="<%=order.getReceiver()%>"  required/></td>
 			</tr>
 			
 			<tr>
 				<td><label for="exampleFormControlSelect1">Address</label></td>
-				<td><input type="text" name="address" class="form-control" value="<%= order.getAddress()%>" required/></td>
+				<td><input type="text" name="address" id="address" class="form-control" value="<%=order.getAddress()%>" required></td>
 			</tr>
 
- 			<tr>
+
+			<tr>
 				<td><label for="exampleFormControlSelect1">District</label></td>
-				<td><input type="text" name="district" class="form-control" value="<%= order.getDistrict()%>" required></td>
+				<td><input type="text" name="district" class="form-control"value="<%=order.getDistrict()%>"  required></td>
 			</tr>
+			
 			
 			
 			<tr>
 				<td><label for="exampleFormControlSelect1">Town</label></td>
-				<td><input type="text" name="town" class="form-control" value="<%= order.getTown()%>" required/></td>
+				<td><input type="text" name="town" class="form-control" value="<%=order.getTown()%>" required></td>
 			</tr>
 			
 			<tr>
 				<td><label for="exampleFormControlSelect1">PostCode</label></td>
-				<td><input type="number" name="postCode" class="form-control" value="<%= order.getPostCode()%>" required/></td>
+				<td><input type="number" name="postCode" class="form-control"value="<%=order.getPostCode()%>"  required></td>
 			</tr>
-			<tr><td><input type="hidden" name="updateOrder" value="<%=session.getAttribute("Id")%>"></td></tr>
 			
-			<tr><td><br></td>
-			</tr>
+			<tr><td><br></td></tr>
 			<tr>
-				<td><button id = button type="submit" class="btn btn-primary" value="<%=order.getOrderID()%>">Update Details</button></td>
+				<td><button id = button type="submit" class="btn btn-primary" value="<%=order.getOrderID()%>" >Update Details</button></td>
 			</tr>
 			
 	</table>

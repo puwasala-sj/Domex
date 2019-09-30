@@ -48,8 +48,7 @@ public class AddCashPaymentServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		
-		CashPayment c1 = new CashPayment();
+       CashPayment c1 = new CashPayment();
 		
 		String amount = request.getParameter("amount");
 		String deliveryDate=request.getParameter("deliveryDate");
