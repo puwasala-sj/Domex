@@ -34,7 +34,7 @@
 </head>
 <body>
 <div class="wrapper">
-        <div class="sidebar" data-color="orange" data-image="assets/img/sidebar-5.jpg">
+        <div class="sidebar" data-color="orange" data-image="assets/img/sidebar-2.jpg">
 
     <!--
 
@@ -157,13 +157,13 @@
                 </li>
                  
                 <li>
-                    <a href="VehicleList.jsp">
+                    <a href="ListRegularClient.jsp">
                         <i class="pe-7s-note2"></i>
-                        <form method="POST" action="ListVehicleServlet">
+                        <form method="POST" action="ListRegularClientServlet">
 						<table>
 						<tr>
 						<br><br>
-				<td colspan="2"><input type="submit" value="List Corporate Client" class="list-button" />
+				<td colspan="2"><input type="submit" value="List Regular Clients" class="list-button" />
 						</td>
 						</tr>
 						</table>
@@ -172,7 +172,21 @@
                     </a>
                 </li>
                
-
+				<li>
+                    <a href="ListCorporateClient.jsp">
+                        <i class="pe-7s-note2"></i>
+                        <form method="POST" action="ListCorporateClientServlet">
+						<table>
+						<tr>
+						<br><br>
+				<td colspan="2"><input type="submit" value="List Corporate Clients" class="list-button" />
+						</td>
+						</tr>
+						</table>
+						</form>
+                        
+                    </a>
+                </li>
             </ul>
     	</div>
     </div>
@@ -488,7 +502,7 @@
 
         	$.notify({
             	icon: 'pe-7s-gift',
-            	message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+            	message: "Welcome to <b>Domex Admin Dashboard</b> - Courier Service."
 
             },{
                 type: 'info',

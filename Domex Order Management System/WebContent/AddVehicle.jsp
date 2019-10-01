@@ -20,8 +20,8 @@
 <div class="navigationbar">
 
   	    <a href="HomePage.jsp">Home</a>
-	  	<a href="Orders.jsp">Order</a>
-	  	<a href="AddEmployee.jsp">Employee</a>
+	  	<a href="Orders.jsp">Orders</a>
+	  	<a href="AddEmployee.jsp">Employees</a>
 	  	<a href="Customer.jsp">Clients</a>
 	  	
 </div>

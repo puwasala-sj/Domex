@@ -22,8 +22,8 @@
 	<div class="navigationbar">
 		
 	  	<a href="HomePage.jsp">Home</a>
-	  	<a href="Orders.jsp">Order</a>
-	  	<a href="AddVehicle.jsp">Vehicle</a>
+	  	<a href="Orders.jsp">Orders</a>
+	  	<a href="AddVehicle.jsp">Vehicles</a>
 	  	<a href="Customer.jsp">Clients</a>
 	  	
 	</div>
@@ -57,7 +57,6 @@
 			<label for="name">Gender:</label> 
 			<input type="radio"  value= "male" name="gender" checked>Male &nbsp; &nbsp;
 			<input type="radio"  value= "female" name="gender">Female <br><br>
-			
 			
 			<label for="name">Date of Birth:</label> 
 			<input type="date" id="dob" name="dob">

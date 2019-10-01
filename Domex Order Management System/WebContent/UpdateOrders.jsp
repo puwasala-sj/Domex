@@ -1,10 +1,5 @@
 
 <%@page import="java.util.*"%>
-<%@ page import="Model.Order" %>
-<%@ page import="Service.OrderService" %>
-<%@ page import="Service.IOrderServiceImplement"%>    
-<%@ page import="java.util.ArrayList"%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="Model.Order" %>
@@ -166,7 +161,7 @@ button:hover{
 			
 			<tr><td><br></td></tr>
 			<tr>
-				<td><button id = button type="submit" class="btn btn-primary" value="<%=order.getOrderID()%>" >Update Details</button></td>
+				<td><button id = button type="submit" name = "orderID" class="btn btn-primary" value="<%=order.getOrderID()%>">Update Details</button></td>
 			</tr>
 			
 	</table>

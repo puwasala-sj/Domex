@@ -163,25 +163,25 @@ public class AddOrderServlet extends HttpServlet {
 				    session2.setAttribute("packages", order.getPackages());
 				    
 				    HttpSession session3 = request.getSession(); 
-				    session1.setAttribute("type", order.getType());
+				    session3.setAttribute("type", order.getType());
 					
 				    HttpSession session4 = request.getSession(); 
-				    session2.setAttribute("weight", order.getWeight());
+				    session4.setAttribute("weight", order.getWeight());
 				    
 				    HttpSession session5 = request.getSession(); 
-				    session1.setAttribute("receiver", order.getReceiver());
+				    session5.setAttribute("receiver", order.getReceiver());
 					
 				    HttpSession session6 = request.getSession(); 
-				    session2.setAttribute("address", order.getAddress());
+				    session6.setAttribute("address", order.getAddress());
 				    
 				    HttpSession session7 = request.getSession(); 
-				    session1.setAttribute("district", order.getDistrict());
+				    session7.setAttribute("district", order.getDistrict());
 					
 				    HttpSession session8 = request.getSession(); 
-				    session2.setAttribute("town", order.getTown());
+				    session8.setAttribute("town", order.getTown());
 				    
 				    HttpSession session9 = request.getSession(); 
-				    session1.setAttribute("postCode", order.getPostCode());
+				    session9.setAttribute("postCode", order.getPostCode());
 				    
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Orders.jsp");
 					dispatcher.include(request, response);

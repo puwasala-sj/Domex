@@ -62,5 +62,14 @@
 		</fieldset>
 		
 	</form>
+	
+	<button onclick="myFunction()" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;"> PRINT </button>
+
+
+		<script>
+		function myFunction() {
+			  window.print();
+			}
+		</script>
 </body>
 </html>

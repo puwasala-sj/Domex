@@ -85,7 +85,7 @@ public class IOrderServiceImplement implements OrderService {
 	@Override
 	public ArrayList<Order> getOrderInfo(int orderID) throws SQLException {
 		// TODO Auto-generated method stub
-		String sql = "select * from `order` where orderID  = '"+orderID+"'";
+		String sql = "select*from `order` where orderID = '"+orderID+"'";
 		Statement stm = conn.createStatement();
 		ResultSet result = stm.executeQuery(sql);
 		

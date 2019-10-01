@@ -32,23 +32,18 @@
 	  	<a href="Admin.jsp">Admin DashBorad</a>
 	  	
 	</div>
-</div>
-
-
-
 <nav aria-label="breadcrumb" >
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#"></a>Client Type</li>
-        <li class="breadcrumb-item active" aria-current="page">Client List</li>
+    <li class="breadcrumb-item"><a href="HomePage.jsp">Home</a></li>
+    <li class="breadcrumb-item"><a href="Admin.jsp">Admin DashBoard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">List Regular Clients</li>
   </ol>
 </nav>
+</div>
+	<h3><center> Regular Client Details</center></h3>
 
-	<center>
-	<h3>  Regular Client Details </h3>
-
-	<table cellpadding="10">
-  <thead >
+  <table cellpadding="10" id="regularClientTable">
+  <thead>
     <tr>
       <th scope="col">Client ID</th>
       <th scope="col">First Name</th>
@@ -63,7 +58,6 @@
       <th scope="col">Province</th>
       <th scope="col">Email</th>
       <th scope="col">Contact No</th>
-       <th scope="col">Remove Client</th> 
   </thead>
   <tbody>
   
@@ -94,15 +88,13 @@
       <!-- delete buttons -->
       <td> 
       		<form action = "DeleteRegularClientServlet" method = "post">
-      		<input type = "submit" name = "deleteClient" value = "Remove" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light"> 
+      		<input type = "submit" name = "deleteClient" value = "Delete" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;cursor: pointer;border-radius: 5%;font-weight:bold;"> 
       		<input type= "hidden" name = "removeClient" value = <%=regularClient.getClientId()%>>
       	   </form> 
       
-      </td>
-      <!-- update buttons -->
-      <td> 
+      <!-- update buttons --> 
       	<form action = "update" method = "post">
-      		<input type = "submit" name = "updateClient" value = "Edit" class="class="btn btn-default"> <i class="fas fa-magic mr-1"> </i>Edit</input>
+      		<input type = "submit" name = "updateClient" value = "Update" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;cursor: pointer;border-radius: 5%;font-weight:bold;"> 
       		<input type= "hidden" name = "editClient" value = <%=regularClient.getClientId()%>>
       	 </form> 
       </td>
@@ -113,6 +105,47 @@
     
   </tbody>
 </table>
-	</center>
+<button id="btnExport" onclick="fnExcelReport();" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;"> EXPORT AS EXCEL DOCUMENT </button>
+<button onclick="myFunction()" style=" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;"> PRINT </button>
+
+
+		<script>
+		function myFunction() {
+			  window.print();
+			}
+		
+		function fnExcelReport(){
+			    var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
+			    var textRange; var j=0;
+			    tab = document.getElementById('regularClientTable'); // id of table
+
+			    for(j = 0 ; j < tab.rows.length ; j++) 
+			    {     
+			        tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+			        //tab_text=tab_text+"</tr>";
+			    }
+
+			    tab_text=tab_text+"</table>";
+			    tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");
+			    tab_text= tab_text.replace(/<img[^>]*>/gi,""); 
+			    tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); 
+
+			    var ua = window.navigator.userAgent;
+			    var msie = ua.indexOf("MSIE "); 
+
+			    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      
+			    {
+			        txtArea1.document.open("txt/html","replace");
+			        txtArea1.document.write(tab_text);
+			        txtArea1.document.close();
+			        txtArea1.focus(); 
+			        sa=txtArea1.document.execCommand("SaveAs",true,"ListRegularClient.xls");
+			    }  
+			    else                 
+			        sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
+
+			    return (sa);
+			}
+		</script>
 </body>
 </html>

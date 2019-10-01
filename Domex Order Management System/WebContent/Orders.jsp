@@ -60,10 +60,11 @@ button:hover{
 	<div class="navigationbar">
 		
 	  	<a href="HomePage.jsp">Home</a>
-	  	<a href="Orders.jsp">Order</a>
-	  	<a href="PaymentMethod.jsp">Payment Method</a>
-	  	<a href="AddVehicle.jsp">Vehicle</a>
 	  	<a href="Customer.jsp">Clients</a>
+	  	<a href="AddEmployee.jsp">Employees</a>
+	  	<a href="AddVehicle.jsp">Vehicles</a>
+	  	<a href="PaymentMethod.jsp">Payment Methods</a>
+	  	
 	  	
 	</div>
 </div>

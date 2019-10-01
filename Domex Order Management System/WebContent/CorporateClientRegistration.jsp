@@ -1,18 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
 <head>
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-<link rel="stylesheet" type="text/css" href="Registration_Form.css">
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<title>Corporate Client Registration</title>
-<link href='https://fonts.googleapis.com/css?family=Nunito:400,300'
-	rel='stylesheet' type='text/css'>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Registration</title>
+<link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="CSS/Registration_Form.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="CSS/Navigation.css">
@@ -27,10 +21,10 @@
 	<div class="navigationbar">
 		
 		<a href="HomePage.jsp">Home</a>
-	  	<a href="Orders.jsp">Order</a>
-	  	<a href="AddEmployee.jsp">Employee</a>
-	  	<a href="AddVehicle.jsp">Vehicle</a>
-	  	<a href="client_registration.jsp">Regular Client</a>
+	  	<a href="Orders.jsp">Orders</a>
+	  	<a href="AddEmployee.jsp">Employees</a>
+	  	<a href="AddVehicle.jsp">Vehicles</a>
+	  	<a href="client_registration.jsp">Regular Clients</a>
 	</div>
 </div>
 
@@ -46,12 +40,8 @@
 <div class= "container">
 
 <form action="addCorporateClient" method="post">
+	<h1> Corporate Client Registration </h1>
 	<table>		
-	
-			<tr>
-				<h1 for="title"> Corporate Client Registration </h1>
-			</tr> 
-	
 			<div class="form-group">
 			<tr>
 				<td><br><label for="businessName">Business Name</label></td>

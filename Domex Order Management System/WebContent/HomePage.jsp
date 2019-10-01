@@ -23,11 +23,11 @@
 	top:0px; ">	
 	<div class="navigationbar">
 		
-	  	<a href="Home.jsp">Home</a>
-	  	<a href="Orders.jsp">Order</a>
-	  	<a href="AddEmployee.jsp">Employee</a>
+	  	<a href="HomePage.jsp">Home</a>
+	  	<a href="Orders.jsp">Orders</a>
+	  	<a href="AddEmployee.jsp">Employees</a>
 	  	<a href="Customer.jsp">Clients</a>
-	  	<a href="AddVehicle.jsp">Vehicle</a>
+	  	<a href="AddVehicle.jsp">Vehicles</a>
 	</div>
 </div>
 
@@ -41,28 +41,28 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="Images/yellow.jpg"class="d-block w-100" alt="...">
+        <img src="Images/img8.jpg"class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>WELCOME TO DOMEX ORDER MANAGEMENT SYSTEM</h5>
           <p>Simple , Easy and Reliable </p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="Images/yellow.jpg"class="d-block w-100" alt="...">
+        <img src="Images/img9.jpg"class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>ORDER</h5>
           <p>Manage Orders</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="Images/yellow.jpg"class="d-block w-100" alt="...">
+        <img src="Images/img7.jpg"class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>Employee</h5>
           <p>Manage Employees</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="Images/yellow.jpg" class="d-block w-100" alt="...">
+        <img src="Images/img10.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>Customer</h5>
           <p>Manage Customers from corporate to walk in clients</p>
@@ -88,7 +88,7 @@
 <tr>
 <td >
 <div class="card" style="width: 18rem; ">
-  <img src="Images/yellow.jpg" class="card-img-top" alt="...">
+  <img src="Images/img8.jpg" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">ORDER</h5>
     <p class="card-text">Include details of orders to save into the system</p>
@@ -100,7 +100,7 @@
 
 <td >
 <div class="card" style="width: 18rem;">
-  <img src="Images/yellow.jpg" class="card-img-top" alt="...">
+  <img src="Images/img10.jpg" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">CLIENT</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -111,7 +111,7 @@
 
 <td >
 <div class="card" style="width: 18rem;">
-  <img src="Images/yellow.jpg" class="card-img-top" alt="...">
+  <img src="Images/img7.jpg" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">EMPLOYEE</h5>
     <p class="card-text">Edit and manage employees</p>
@@ -124,9 +124,9 @@
 
 <td >
 <div class="card" style="width: 18rem; ">
-  <img src="Images/yellow.jpg" class="card-img-top" alt="...">
+  <img src="Images/img9.jpg" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">Admin Dashboard</h5>
+    <h5 class="card-title">ADMIN DASHBOARD</h5>
     <p class="card-text">List Details and manage all details</p>
     <br>
     <br>
