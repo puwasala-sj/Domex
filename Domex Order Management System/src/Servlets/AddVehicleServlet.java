@@ -136,13 +136,13 @@ public class AddVehicleServlet extends HttpServlet {
 				    session1.setAttribute("vehicleNumber", vehicle.getVehicleNumber());
 					
 				    HttpSession session2 = request.getSession(); 
-				    session1.setAttribute("vehicleModel", vehicle.getVehicleModel());
+				    session2.setAttribute("vehicleModel", vehicle.getVehicleModel());
 					
 				    HttpSession session3 = request.getSession(); 
-				    session2.setAttribute("vehicleBrand", vehicle.getVehicleBrand());
+				    session3.setAttribute("vehicleBrand", vehicle.getVehicleBrand());
 				    
 				    HttpSession session4 = request.getSession(); 
-				    session2.setAttribute("eid", vehicle.getEid());			    
+				    session4.setAttribute("eid", vehicle.getEid());			    
 					
 					
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddVehicle.jsp");

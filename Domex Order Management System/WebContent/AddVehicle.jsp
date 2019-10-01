@@ -57,7 +57,7 @@
 			
 			
 			<label for="name">Employee ID:</label> 
-			<input type="text" id="eid" name="eid" required >
+			<input type="text" id="eid" name="eid">
 			
 			
 			
@@ -70,7 +70,16 @@
 			<button type="reset">Reset</button>
 			<p></p>
 
-		
+	<button onclick="autoFill()" style="background-color:purple;border:none;color:white;padding:10px 32px;text-decoration:none;cursor:pointer;border-radius:5%;font-weight:bold;">Demo</button>
+	
+	<script type="text/javascript">
+	function autoFill(){
+		document.getElementByID('vehicleNumber').value = "K1010";
+		document.getElementByID('vehicleModel').value = "Dyna";
+		document.getElementByID('vehicleBrand').value = "Toyota";
+		document.getElementByID('eid').value = 1;
+	}
+	</script>
 	</form>
 
 </body>
