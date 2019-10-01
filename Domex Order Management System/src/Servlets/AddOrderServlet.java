@@ -183,7 +183,7 @@ public class AddOrderServlet extends HttpServlet {
 				    HttpSession session9 = request.getSession(); 
 				    session9.setAttribute("postCode", order.getPostCode());
 				    
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Orders.jsp");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PaymentMethod.jsp");
 					dispatcher.include(request, response);
 			}
 			else
