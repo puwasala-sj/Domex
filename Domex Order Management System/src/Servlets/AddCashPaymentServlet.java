@@ -63,7 +63,17 @@ public class AddCashPaymentServlet extends HttpServlet {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CashPayment.jsp");
 			dispatcher.include(request, response);
 		}	
-	
+		else if(!deliveryAddress.matches("/^[a-zA-Z0-9,/]*$/")) {
+			PrintWriter writer = response.getWriter();
+			
+			writer.println("<script>");
+			writer.println("alert('Address can be contain only letters,numbers, / and ,')");
+			writer.println("</script>");
+			
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CashPayment.jsp");
+			dispatcher.include(request, response);
+			
+		}
 	
 		else {
 			c1.setAmount(amount);

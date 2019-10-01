@@ -52,7 +52,7 @@ public class AddChequePaymentServlet extends HttpServlet {
 		String chequeNumber = request.getParameter("chequeNumber");
 		String bank = request.getParameter("bank");
 		
-		if(chequeNumber.equals("") ||bank.contentEquals("")|| amount.equals("")) {
+		if(amount.equals("") || chequeNumber.equals("") ||bank.contentEquals("")) {
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('Fill all Details')");

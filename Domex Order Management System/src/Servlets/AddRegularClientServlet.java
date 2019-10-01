@@ -201,7 +201,7 @@ public class AddRegularClientServlet extends HttpServlet {
 				
 				request.setAttribute("success", "Registration Successful!");
 				
-				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/ListRegularClient.jsp");
+				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/client_registration.jsp");
 				dispatch.include(request, response);
 				
 			}
