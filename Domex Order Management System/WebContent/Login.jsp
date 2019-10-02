@@ -38,7 +38,7 @@
     }
 </style>
 </head>
-<body  style = "background-image:url('Images/i5.jpg');">
+<body  style = "background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Images/img9.jpg');">
 <div class="header">
 	<img  alt="" src="Images/domex_logo.png" style="z-index = 1; position:absolute;  
 	z-index:1;  
@@ -51,12 +51,7 @@
 	</div>
 </div>
 
-<nav aria-label="breadcrumb" >
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Login User</li>
-  </ol>
-</nav>
+
 <br/><br/><br/><br/>
 <div class="login-form">
     <form action="LoginServlet" method="post">

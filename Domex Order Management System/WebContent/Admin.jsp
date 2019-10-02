@@ -170,6 +170,22 @@
                         
                     </a>
                 </li>
+                
+                <li>
+                    <a href="ListUser.jsp">
+                        <i class="pe-7s-note2"></i>
+                        <form method="POST" action="ListUserServlet">
+						<table>
+						<tr>
+						<br><br>
+				<td colspan="2"><input type="submit" value="List Regular Clients" class="list-button" />
+						</td>
+						</tr>
+						</table>
+						</form>
+                        
+                    </a>
+                </li>
                
 				<li>
                     <a href="ListCorporateClient.jsp">
