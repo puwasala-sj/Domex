@@ -15,7 +15,7 @@ public interface IRegularClientService {
 	public ArrayList<RegularClient> listRegularClients() throws SQLException;
 	
 	//update
-	public RegularClient updateRegularClient(int clientId, RegularClient regularClient);
+	public boolean updateRegularClient(int clientId, RegularClient regularClient) throws SQLException;
 	
 	//delete
 	public boolean deleteRegularClient(int clientId) throws SQLException;

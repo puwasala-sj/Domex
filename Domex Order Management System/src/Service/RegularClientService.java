@@ -94,9 +94,33 @@ public class RegularClientService implements IRegularClientService {
 	}
 
 	@Override
-	public RegularClient updateRegularClient(int clientId, RegularClient regularClient) {
+	public boolean updateRegularClient(int clientId, RegularClient regularClient) throws SQLException {
 		
-		return null;
+		String query = "update regular_client set first_name=?, last_name=?, house_no=?, lane=?, street=?, town=?, city=?, email=?, contact_no=?, nic=?, province=? where client_id= " + regularClient.getClientId();
+		//statement = connection.createStatement();
+		PreparedStatement preparestatement = connection.prepareStatement(query); //DB connection
+		
+		preparestatement.setObject(1, regularClient.getFirstName());
+		preparestatement.setObject(2, regularClient.getLastName());
+		preparestatement.setObject(3, regularClient.getAddressNo());
+		preparestatement.setObject(4, regularClient.getLane());
+		preparestatement.setObject(5, regularClient.getStreet());
+		preparestatement.setObject(6, regularClient.getTown());
+		preparestatement.setObject(7, regularClient.getCity());
+		preparestatement.setObject(8, regularClient.getEmail());
+		preparestatement.setObject(9, regularClient.getContactNo());
+		preparestatement.setObject(10, regularClient.getNic());
+		preparestatement.setObject(11, regularClient.getProvince());
+		
+		//execute sql statement
+		int result = preparestatement.executeUpdate();
+		
+		if(result > 0) {
+			return true;
+		}
+		else
+			return false;
+		
 	}
 
 	@Override
