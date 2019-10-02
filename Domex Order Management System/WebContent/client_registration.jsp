@@ -163,17 +163,17 @@ body{
 		<script type="text/javascript">
 		
 			function autoFill() { 
-				document.getElementByName('F_Name').value = "";
-				document.getElementByName('L_Name').value = "";
-				document.getElementByName('H_Number').value = "";
-				document.getElementByName('Lane').value = "";
-				document.getElementByName('Street').value = "";
-				document.getElementByName('Town').value = "";
-				document.getElementByName('City').value = "";
-				document.getElementByName('PostalCode').value = "";
-				document.getElementByName('Email').value = "";
-				document.getElementByName('contact_no').value = "";
-				document.getElementByName('nic').value = "";
+				document.getElementByName('F_Name')[0].value = "";
+				document.getElementByName('L_Name')[0].value = "";
+				document.getElementByName('H_Number')[0].value = "";
+				document.getElementByName('Lane')[0].value = "";
+				document.getElementByName('Street')[0].value = "";
+				document.getElementByName('Town')[0].value = "";
+				document.getElementByName('City')[0].value = "";
+				document.getElementByName('PostalCode')[0].value = "";
+				document.getElementByName('Email')[0].value = "";
+				document.getElementByName('contact_no')[0].value = "";
+				document.getElementByName('nic')[0].value = "";
 			
 			} 
 		
