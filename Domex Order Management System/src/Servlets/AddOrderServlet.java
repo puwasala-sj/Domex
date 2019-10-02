@@ -68,7 +68,26 @@ public class AddOrderServlet extends HttpServlet {
 		String district = request.getParameter("district");
 		String town = request.getParameter("town");
 		int postCode = Integer.parseInt(request.getParameter("postCode"));
-		float charge = weight * 150;
+		float charge = 0;
+		
+		if(district.equalsIgnoreCase("colombo")) {
+			 charge = weight * 150;
+		}else if(district.equalsIgnoreCase("kandy")) {
+			 charge = weight * 160;
+		}else if(district.equalsIgnoreCase("kurunegala")) {
+			 charge = weight * 170;
+		}else if(district.equalsIgnoreCase("jaffna")) {
+			 charge = weight * 200;
+		}else if(district.equalsIgnoreCase("gampaha")) {
+			 charge = weight * 155;
+		}else if(district.equalsIgnoreCase("matara")) {
+			 charge = weight * 165;
+		}else if(district.equalsIgnoreCase("hambantota")) {
+			 charge = weight * 175;
+		}else {
+			 charge = weight * 168;
+		}
+		
 	
 		if(customer_Name.equals("") ||packages.equals("") || type.equals("") || receiver.equals("") || address.equals("") || district.equals("") ||town.equals("") ) {
 			PrintWriter out = response.getWriter();

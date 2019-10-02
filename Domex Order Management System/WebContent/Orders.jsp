@@ -170,6 +170,23 @@ button:hover{
 </div>
 
 <br>
+
+		<button onclick="autoFill()" style =" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;"> PRINT </button> 
+		<script type="text/javascript">
+		
+			function autoFill() { 
+			document.getElementById('customer_Name').value = "Rishikeish"; 
+			document.getElementById('kilo').value = "27"; 
+			document.getElementById('gram').value = "800"; 
+			document.getElementById('receiver').value = "Johnson"; 
+			document.getElementById('address').value = "110,centre road,mattakkuliya"; 
+			document.getElementsByName('district')[0].value = "colombo";
+			document.getElementsByName('town')[0].value = "modera";
+			document.getElementsByName('postCode')[0].value = "15";
+			
+			} 
+		
+		</script> 
 <br>
 <br>
 

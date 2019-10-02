@@ -1,15 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Client Registration</title>
-<link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="CSS/Registration_Form.css">
+<% String message = (String)request.getAttribute("success");%>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="CSS/Navigation.css">
+<link rel="stylesheet" type="text/css" href="CSS/Registration_Form.css">
+
+<style>
+
+body{
+	
+	background-image:url('images/yellow.jpg');
+	text-align: center;
+	 
+}
+</style>
+<meta charset="ISO-8859-1">
+
+<title>Client Registration</title>
+
 </head>
 
 <body  style = "background-image:url('Images/i5.jpg');">
@@ -21,11 +33,10 @@
 	<div class="navigationbar">
 		
 	  	<a href="HomePage.jsp">Home</a>
-	  	<a href="Orders.jsp">Orders</a>
+	  	<a href="Orders.jsp">Order</a>
 	  	<a href="AddEmployee.jsp">Employees</a>
-	  	<a href="AddVehicle.jsp">Vehicles</a>
-	  	<a href="CorporateClientRegistration.jsp">Corporate Clients</a>
-	  	
+	  	<a href="Customer.jsp">Client</a>
+	  	<a href="ListRegularClient.jsp">Client List</a>
 	</div>
 </div>
 
@@ -34,60 +45,70 @@
 <nav aria-label="breadcrumb" >
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Regular Client</li>
+    <li class="breadcrumb-item active" aria-current="page">Regular Clients</li>
   </ol>
 </nav>
 
+	<br>
+	<br>
+
+
+<div class= "container">
+
+
 <form action="AddRegularClientServlet" method="post">
 	<p>
-	</p>
-	<h1> Regular Client Registration </h1>
-	<fieldset>	
-			<label for="firstName">First Name</label>
-			<input type="text" name="F_Name" /><br>
-			
-			<label for="lastName">Last Name</label>
-			<input type="text" name="L_Name" required /><br>
-			
-			<label for="houseNo">House No</label>
-			<input type="text" name="H_Number" required/><br>
-			
-			<label for="lane">Lane</label>
-			<input type="text" name="Lane"  required><br>
-			
-		    <label for="street">Street</label>
-			<input type="text" name="Street"required><br>
-			
-			<label for="town">Town</label>
-			<input type="text" name="Town" required ><br>
-			
-			<label for="city">City</label>
-			<input type="text" name="City" required><br>
-			
-				
-		<!-- 	<td><label for="district">District</label></td> -->
-			
-<%-- 			<select name="vehicle" class="form-control" id="exampleFormControlSelect1">
-   <%  
-		
- 		ArrayList <District> list = (ArrayList<District>) request.getAttribute("listDistrict");
-	%>
+		</p>
+	<table>		
 	
+			<tr>
+				<td><label><h1 for="title"> Regular Client Registration </h1></label></td>
+			</tr> 
 	
-	<%
-		// print the information about every category of the list
-		for(District district : list) { %>
+			<div class="form-group">
+			<tr>
+				<td><label for="firstName">First Name</label></td>
+				<td><input type="text" name="F_Name" class="form-control"/><br></td>
+			</tr>
+			</div>
 			
-			<option name = "district" value = <%= district.getName() %> > <%= district.getName() %></option>
-	<% 	
-	}
-	%> --%>	
+			<div class="form-group">
+			<tr>
+				<td><label for="lastName">Last Name</label></td>
+				<td><input type="text" name="L_Name" class="form-control" required /><br></td>
+			</tr>
+			</div>			
 			
 			<tr>
-				<td><label for="Province">Province</label></td>  &nbsp; &nbsp;
+				<td><label for="houseNo">House No</label></td>
+				<td><input type="text" name="H_Number" class="form-control"  required/><br></td>
+			</tr>	
+			<tr>
+				<td><label for="lane">Lane</label></td>
+				<td><input type="text" name="Lane" class="form-control" ><br></td>
+			</tr>
+			
+			<tr>
+				<td><label for="street">Street</label></td>
+				<td><input type="text" name="Street" class="form-control" ><br></td>
+			</tr>
+			
+			<tr>
+				<td><label for="town">Town</label></td>
+				<td><input type="text" name="Town" class="form-control" ><br></td>
+			</tr>
+			
+			<tr>
+				<td><label for="city">City</label></td>
+				<td><input type="text" name="City" class="form-control" required><br></td>
+			</tr>
+					
+			
+			<tr>
+				<td><label for="Province">Province</label></td>
 				<td>
 					
-					<select class="browser-default custom-select" name="Province" style="width:200px;">
+					<select class="browser-default custom-select" name="Province"	 style="width:200px;">
 						<option value="Central Province">Central Province </option>
 						<option value= "Eastern Province"> Eastern Province</option>
 						<option value= "Western Province" selected> Western Province</option>
@@ -102,27 +123,61 @@
 				</td>
 			</tr>
 			
-			<tr><td><br></td></tr><br><br>
+			<tr><td><br></td></tr>
 			
-			<label for="postCode">Postal Code</label>
-			<input type="number" name="PostalCode" required><br>
+			<tr>
+				<td><label for="postCode">Postal Code</label></td>
+				<td><input type="number" name="PostalCode" class="form-control" required><br></td>
+			</tr>	
 			
-			<label for="email">Email</label>
-			<input type="text" name="Email"  required><br>
+			<tr>
+				<td><label for="email">Email</label></td>
+				<td><input type="text" name="Email" class="form-control" required><br></td>
+			</tr>
 			
-			<label for="contactNo">Contact No</label>
-			<input type="text" name="contact_no"  maxlength = "10" required><br>
+			<tr>
+				<td><label for="contactNo">Contact No</label></td>
+				<td><input type="text" name="contact_no" class="form-control" maxlength = "10" required><br></td>
+			</tr>
 			
-			<label for="nic">NIC No:</label>
-			<input type="text" name="nic"  required /><br>
+			<tr>
+			<div class="form-group">
+			<tr>
+				<td><label for="nic">NIC No:</label></td>
+				<td><input type="text" name="nic" class="form-control" required /><br></td>
+			</tr>
+			</div>
 			
-			</fieldset>
-
-			<button type="submit">Submit</button>
-			<p></p>
-			<button type="reset">Reset</button>
-			<p></p>
+			<tr><td><br></td></tr>
+			<tr>
+				<td><button id = button type="submit" class="btn btn-primary">Submit</button></td>
+			</tr>
+			
+	</table>
 </form>
+
+
+</div>
+
+<button onclick="autoFill()" style =" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;"> PRINT </button> 
+		<script type="text/javascript">
+		
+			function autoFill() { 
+				document.getElementByName('F_Name').value = "";
+				document.getElementByName('L_Name').value = "";
+				document.getElementByName('H_Number').value = "";
+				document.getElementByName('Lane').value = "";
+				document.getElementByName('Street').value = "";
+				document.getElementByName('Town').value = "";
+				document.getElementByName('City').value = "";
+				document.getElementByName('PostalCode').value = "";
+				document.getElementByName('Email').value = "";
+				document.getElementByName('contact_no').value = "";
+				document.getElementByName('nic').value = "";
+			
+			} 
+		
+		</script> 
 
 </body>
 </html>

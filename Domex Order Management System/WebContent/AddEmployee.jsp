@@ -98,6 +98,22 @@
 		
 	</form>
 
+<button onclick="autoFill()" style =" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;"> PRINT </button> 
+		<script type="text/javascript">
+		
+			function autoFill() { 
+				document.getElementByName('fname').value = "";
+				document.getElementByName('lname').value = "";
+				document.getElementByName('address').value = "";
+				document.getElementByName('dob').value = "";
+				document.getElementByName('contactNo').value = "";
+				document.getElementByName('email').value = "";
+				document.getElementByName('qualifications').value = "";
+				
+			
+			} 
+		
+		</script> 
 	
 </body>
 </html>

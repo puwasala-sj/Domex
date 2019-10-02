@@ -66,6 +66,20 @@
 			<button type="reset">Reset</button>
 			<p></p>
 	</form>
+	
+	<button onclick="autoFill()" style =" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;"> PRINT </button> 
+		<script type="text/javascript">
+		
+			function autoFill() { 
+				document.getElementByName('vehicleNumber').value = "";
+				document.getElementByName('vehicleModel').value = "";
+				document.getElementByName('vehicleBrand').value = "";
+				document.getElementByName('eid').value = "";
+				
+			
+			} 
+		
+		</script> 
 
 </body>
 </html>

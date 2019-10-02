@@ -1,12 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Client Registration</title>
-<link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="CSS/Navigation.css">
+<link rel="stylesheet" type="text/css" href="CSS/Registration_Form.css">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Corporate Client Registration</title>
+<link href='https://fonts.googleapis.com/css?family=Nunito:400,300'
+	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="CSS/Registration_Form.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="CSS/Navigation.css">
@@ -21,10 +27,9 @@
 	<div class="navigationbar">
 		
 		<a href="HomePage.jsp">Home</a>
-	  	<a href="Orders.jsp">Orders</a>
+	  	<a href="Orders.jsp">Order</a>
 	  	<a href="AddEmployee.jsp">Employees</a>
-	  	<a href="AddVehicle.jsp">Vehicles</a>
-	  	<a href="client_registration.jsp">Regular Clients</a>
+	  	<a href="Customer.jsp">Client</a>
 	</div>
 </div>
 
@@ -40,8 +45,12 @@
 <div class= "container">
 
 <form action="addCorporateClient" method="post">
-	<h1> Corporate Client Registration </h1>
 	<table>		
+	
+			<tr>
+				<h1 for="title"> Corporate Client Registration </h1>
+			</tr> 
+	
 			<div class="form-group">
 			<tr>
 				<td><br><label for="businessName">Business Name</label></td>
@@ -65,27 +74,7 @@
 				<td><label for="street">Street</label></td>
 				<td><input type="text" name="Street" class="form-control" ></td>
 			</tr>
-						
-			<tr>
-			<td><label for="district">District</label></td>
-			
-<%-- 			<select name="vehicle" class="form-control" id="exampleFormControlSelect1">
-   <%  
-		
- 		ArrayList <District> list = (ArrayList<District>) request.getAttribute("listDistrict");
-	%>
-	
-	
-	<%
-		// print the information about every category of the list
-		for(District district : list) { %>
-			
-			<option name = "district" value = <%= district.getName() %> > <%= district.getName() %></option>
-	<% 	
-	}
-	%> --%>
-			</tr>
-			
+									
 			<tr>
 				<td><label for="town">Town</label></td>
 				<td><input type="text" name="Town" class="form-control" ></td>
@@ -101,10 +90,10 @@
 				<td><label for="province">Province</label></td>
 				<td>
 					
-					<select style="width:200px;">
+					<select class="browser-default custom-select" name="Province" style="width:200px;">
 						<option>Central Province </option>
 						<option> Eastern Province</option>
-						<option> Western Province</option>
+						<option selected> Western Province</option>
 						<option> Northern Province</option>
 						<option> Southern Province</option>
 						<option> North Western Province</option>
@@ -141,6 +130,26 @@
 </form>
 
 </div>
+
+<button onclick="autoFill()" style =" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;"> PRINT </button> 
+		<script type="text/javascript">
+		
+			function autoFill() { 
+				document.getElementByName('Business_Name')[0].value = "";
+				document.getElementByName('H_Number')[0].value = "";
+				document.getElementByName('Lane')[0].value = "";
+				document.getElementByName('Street')[0].value = "";
+				document.getElementByName('Town')[0].value = "";
+				document.getElementByName('City')[0].value = "";
+				document.getElementByName('Email')[0].value = "";
+				document.getElementByName('Email_other')[0].value = "";
+				document.getElementByName('Contact_No')[0].value = "";
+				
+				
+			
+			} 
+		
+		</script>  
 	
 </body>
 

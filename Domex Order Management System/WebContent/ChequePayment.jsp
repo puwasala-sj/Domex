@@ -68,6 +68,15 @@
 		
 	</form>
 
+		<button onclick="autoFill()" style =" background-color: purple;border: none; color: white;padding: 10px 32px; text-decoration: none;margin: 4px 2px;cursor: pointer;border-radius: 5%;font-weight:bold;"> PRINT </button> 
+		<script type="text/javascript">
+		
+			function autoFill() { 
+			document.getElementById('chequeNumber').value = "";
+			document.getElementById('bank').value = ""; 
+			} 
+		
+		</script> 
 </body>
 </body>
 </html>
