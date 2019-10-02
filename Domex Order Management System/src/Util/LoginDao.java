@@ -9,7 +9,11 @@ import Model.User;
 
 public class LoginDao {
 	
-	public LoginDao(){}
+	private static Connection conn;
+	
+	public LoginDao(){
+		conn = myDB.getDBconection();
+	}
 	
 	public String userAuthentication(User user) throws SQLException {
 		
@@ -17,16 +21,16 @@ public class LoginDao {
 		String password = user.getPassword();
 		
 		//DB connection
-		Connection connection = null;
+	
 		Statement statement = null;
-		ResultSet resultSet = null;
+		
 		
 			
-		connection = myDB.getDBconection();
-		statement = connection.createStatement();
+		conn = myDB.getDBconection();
+		statement = conn.createStatement();
 		
 		String query = "select username, cast(aes_decrypt((password,'domex') as char), role, status from login ;";
-		resultSet = statement.executeQuery(query);
+		ResultSet resultSet = statement.executeQuery(query);
 		
 		//get values
 		String usernameDB = null;
